@@ -6,16 +6,33 @@ const EventForm = () => {
         title: '',
         genres: '',
         capacity: 0,
-        price: 0,
         date: '',
-        location: '',
-        zipcode: '',
-        street: '',
-        city: '',
         vip: false,
         description: '',
-        minAge: ''
+        minAge: '',
+        available: true
     });
+
+    const [location, setLocation] = useState({
+        street: '',
+        city: '',
+        zipcode: ''
+    })
+
+    const [price, setPrice] = useState({
+        regular: 0,
+        early: 0
+    })
+
+    const handleLocationChange = e => {
+        const { name, value } = e.target;
+        setLocation({ ...location, [name]: value });
+    };
+
+    const handlePriceChange = e => {
+        const { name, value } = e.target;
+        setPrice({ ...price, [name]: value });
+    };
 
     const handleEventChange = e => {
         const { name, value } = e.target;
@@ -37,10 +54,17 @@ const EventForm = () => {
                             <Form.Control type="number" min={1} value={eventData.capacity} onChange={handleEventChange} name="capacity" />
                         </Form.Group>
 
-                        <Form.Group as={Col} xs={2} controlId="formEventPrice">
-                            <Form.Label>Precio</Form.Label>
-                            <Form.Control type="number" min={0} value={eventData.price} onChange={handleEventChange} name="price" />
-                        </Form.Group>
+                        <Row className="mb-3">
+                            <Form.Group as={Col} xs={2} controlId="formEventPriceRegular">
+                                <Form.Label>Precio Regular</Form.Label>
+                                <Form.Control type="number" min={0} value={price.regular} onChange={handlePriceChange} name="regular" />
+                            </Form.Group>
+
+                            <Form.Group as={Col} xs={2} controlId="formEventPriceEarly">
+                                <Form.Label>Precio Anticipado</Form.Label>
+                                <Form.Control type="number" min={0} value={price.early} onChange={handlePriceChange} name="early" />
+                            </Form.Group>
+                        </Row>
                     </Row>
 
                     <Row className="mb-3">
@@ -72,8 +96,8 @@ const EventForm = () => {
                     </Row>
 
                     <Form.Group className="mb-3" controlId="formEventLocation">
-                        <Form.Label>Ubicación del Evento</Form.Label>
-                        <Form.Control placeholder="1234 Calle Principal" required value={eventData.location} onChange={handleEventChange} name="location" />
+                        <Form.Label>Direccion del Evento</Form.Label>
+                        <Form.Control placeholder="1234 Calle Principal" required value={eventData.street} onChange={handleLocationChange} name="street" />
                     </Form.Group>
 
                     <Row className="mb-3">
@@ -84,12 +108,12 @@ const EventForm = () => {
 
                         <Form.Group as={Col} controlId="formEventCity">
                             <Form.Label>Ciudad</Form.Label>
-                            <Form.Control required value={eventData.city} onChange={handleEventChange} name="city" />
+                            <Form.Control required value={eventData.city} onChange={handleLocationChange} name="city" />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formEventZip">
                             <Form.Label>Código Postal</Form.Label>
-                            <Form.Control required value={eventData.zipcode} onChange={handleEventChange} name="zipcode" />
+                            <Form.Control required value={eventData.zipcode} onChange={handleLocationChange} name="zipcode" />
                         </Form.Group>
                     </Row>
 
