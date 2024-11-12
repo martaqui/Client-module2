@@ -1,16 +1,16 @@
 import { Routes, Route } from "react-router-dom"
 import HomePage from "../pages/HomePage/Homepage"
-import EventCardPage from "../pages/EventCardPage/EventCardPage"
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage"
-import EventList from "./../pages/EventlistPage/Eventlist"
+import EventsPage from "../pages/EventsPage/EventsPage"
 import ProfilePage from "../pages/ProfilePage/ProfilePage"
+import EventDetailsPage from "../pages/EventDetailsPage/EventDetailsPage"
 
 const AppRoutes = () => {
     return (
         <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/eventos" element={<EventList />} />
-            <Route path="/detalles" element={<EventCardPage />} />
+            <Route path="/eventos" element={<EventsPage />} />
+            <Route path="/eventos/detalles/:eventId" element={<EventDetailsPage />} />
             <Route path="/profile" element={<ProfilePage />} />
 
             <Route path="*" element={<NotFoundPage />} />
