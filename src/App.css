@@ -3,3 +3,12 @@ html {
     height: 100%;
     margin: 0;
 }
+
+.bg-body-tertiary {
+    background-color: black !important;
+}
+
+.bg-dark {
+    --bs-bg-opacity: 1;
+    background-color: #000 !important;
+}

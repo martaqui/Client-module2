@@ -28,7 +28,9 @@ const EventsList = () => {
                     events.map(elm => {
                         return (
                             <Col md={{ span: 3 }} key={elm.id}>
-                                <Link to={`/eventos/detalles/${elm.id}`} style={{ textDecoration: 'none' }}><EventCard {...elm} /></Link>
+                                <Link to={`/eventos/detalles/${elm.id}`}>  </Link>
+                                <EventCard {...elm} />
+
                             </Col>
                         )
                     })
