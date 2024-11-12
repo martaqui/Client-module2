@@ -1,0 +1,22 @@
+.Navigation nav {
+    display: flex;
+    flex-wrap: wrap;
+    position: sticky;
+
+}
+
+.Navigation {
+    background-color: white;
+}
+
+.Navigation nav a {
+    text-decoration: none;
+    color: inherit;
+    list-style: none;
+    font-size: 25px;
+
+}
+
+.Navigation nav img {
+    width: 10%;
+}

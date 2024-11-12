@@ -1,11 +1,20 @@
-import "./Footer.css"
+import "./Footer.css";
+import iconImg from "./../../assets/img/iconPag2.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <div className="footer">
+        <div className="Footer">
+            <footer className="navbar navbar-expand-lg navbar-light bg-transparent">
+                <div className="container-fluid justify-content-between">
 
-            <h1>footer</h1>
+                    <Link to={"/"}><li></li></Link>
+                    <Link to={"/eventos"}><li>derechos reservados</li></Link>
+                    <Link to={"/perfil"}><li>Profile</li></Link>
+                </div>
+            </footer>
         </div>
-    )
-}
-export default Footer
+    );
+};
+
+export default Footer;

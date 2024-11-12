@@ -1,5 +1,16 @@
 body,
 html {
+    background-color: black;
     height: 100%;
     margin: 0;
+}
+
+.main {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
 }

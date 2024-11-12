@@ -1,0 +1,40 @@
+.HomePage {
+    background-color: white;
+}
+
+
+.HomePage h1,
+.HomePage h2 {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.5;
+    margin: 20px 0;
+    padding: 10px;
+    color: #333;
+}
+
+.HomePage h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.HomePage h2 {
+    font-size: 2rem;
+    font-weight: lighter;
+    margin-top: 40px;
+}
+
+.HomePage .img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.HomePage .small-img {
+    width: 50%;
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+}
