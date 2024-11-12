@@ -13,3 +13,7 @@ html {
     --bs-bg-opacity: 1;
     background-color: #000 !important;
 }
+
+a {
+    color: inherit
+}
