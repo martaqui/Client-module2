@@ -1,6 +1,11 @@
+import EventForm from "../../components/EventForm/EventForm"
+
 const ProfilePage = () => {
     return (
-        <h1>Profile</h1>
+        <div className="classname">
+            <EventForm />
+        </div>
+
     )
 }
 export default ProfilePage
