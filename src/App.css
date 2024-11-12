@@ -5,12 +5,11 @@ html {
     margin: 0;
 }
 
-.main {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
+.bg-body-tertiary {
+    background-color: black !important;
 }
 
-footer {
-    margin-top: auto;
+.bg-dark {
+    --bs-bg-opacity: 1;
+    background-color: #000 !important;
 }

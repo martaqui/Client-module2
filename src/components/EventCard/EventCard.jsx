@@ -1,20 +1,17 @@
-import { Button, Card } from "react-bootstrap"
+import { Card } from 'react-bootstrap';
 
 const EventCard = ({ cover, title, description }) => {
 
     return (
         <div className="EventCard">
-            <Card>
-                <Card.Img variant="top" src={cover} />
-                <Card.Body>
-                    <Card.Title>{title}</Card.Title>
-                    <Card.Text>
-                        {description}
-                    </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
+            <Card className="bg-dark text-white">
+                <Card.Img src={cover} alt="Card image" />
+                <Card.ImgOverlay className="d-flex justify-content-center align-items-start">
+                    <Card.Title className="text-center w-100">{title}</Card.Title>
+                </Card.ImgOverlay>
             </Card>
         </div>
-    )
-}
-export default EventCard
+    );
+};
+
+export default EventCard;
