@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import EventCard from "../EventCard/EventCard"
 import { Col, Row } from "react-bootstrap"
 import { Link } from "react-router-dom"
+import { auto } from "@cloudinary/url-gen/actions/resize"
 
 const API_URL = "http://localhost:5005"
 
@@ -27,7 +28,7 @@ const EventsList = () => {
                 {
                     events.map(elm => {
                         return (
-                            <Col md={{ span: 3 }} key={elm.id}>
+                            <Col style={{ marginBottom: 20 }} md={{ span: 4 }} key={elm.id}>
                                 <Link to={`/eventos/detalles/${elm.id}`}>  </Link>
                                 <EventCard {...elm} />
 

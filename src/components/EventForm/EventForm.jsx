@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
 
 const API_URL = "http://localhost:5005"
 
@@ -14,7 +16,7 @@ const EventForm = () => {
         description: '',
         minAge: '',
         available: true,
-        cover: '2760d0157c6b9d0719819c865042c690.jpg'
+
     });
 
     const [location, setLocation] = useState({
@@ -49,7 +51,8 @@ const EventForm = () => {
         const reqPayload = {
             ...eventData,
             location: { ...location },
-            price: { ...price }
+            price: { ...price },
+            cover: "https://cdn.pixabay.com/photo/2019/10/15/03/16/black-and-white-4550471_960_720.jpg"
         };
 
         console.log("Este es el envío del form", reqPayload);
@@ -160,9 +163,10 @@ const EventForm = () => {
                         </Form.Group>
                     </Row>
 
-                    <Button variant="primary" type="submit">
+                    <Link to={"/eventos"}><Button variant="primary" type="submit">
                         Crear Evento
                     </Button>
+                    </Link>
                 </Form>
             </Container>
         </div>
