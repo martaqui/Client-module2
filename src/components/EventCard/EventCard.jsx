@@ -1,7 +1,7 @@
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const EventCard = ({ cover, title, description, id }) => {
+const EventCard = ({ cover, title, id }) => {
 
     return (
         <div className="EventCard">
