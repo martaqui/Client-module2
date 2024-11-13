@@ -4,6 +4,7 @@ import EventCard from "../EventCard/EventCard"
 import { Col, Row } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import { auto } from "@cloudinary/url-gen/actions/resize"
+import AttendantsForm from "../AttendantsForm/AttendantsForm"
 
 const API_URL = "http://localhost:5005"
 

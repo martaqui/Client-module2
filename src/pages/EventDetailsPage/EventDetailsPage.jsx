@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Container, Row, Col } from "react-bootstrap";
+import { Link, useParams } from "react-router-dom";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import './EventDetailsPage.css';
+import AttendantsList from "../../components/AttendantsList/AttendantsList";
 
 const API_URL = "http://localhost:5005";
 
@@ -64,15 +65,19 @@ const EventDetailsPage = () => {
                                 </Col>
                                 <Col>
                                     <img src={event.cover} alt={event.title} />
+
                                 </Col>
 
+                                <Button variant="dark">
+                                    <Link to="/perfil/registro" style={{ textDecoration: 'none', color: 'inherit' }}>
+                                        QUIERO ASISTIR A ESTE EVENTO
+                                    </Link>
+                                </Button>
 
                             </Row>
                             <h1> Participantes</h1>
                             <Row>
-                                <Col>1 of 3</Col>
-                                <Col>2 of 3</Col>
-                                <Col>3 of 3</Col>
+                                <AttendantsList />
                             </Row>
                         </>
                 }

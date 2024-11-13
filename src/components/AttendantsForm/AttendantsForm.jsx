@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react"
 import { Container } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
@@ -5,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
+const API_URL = "http://localhost:5005"
 
 const AttendantsForm = () => {
 
@@ -17,6 +19,7 @@ const AttendantsForm = () => {
         birth: '',
         email: '',
         premium: '',
+        phone: '',
         dni: '',
         avatar: '',
         gender: ''
@@ -39,10 +42,43 @@ const AttendantsForm = () => {
         const { name, value } = e.target;
         setAttendantData({ ...attendantData, [name]: value });
     }
+
+    const handleEventSubmit = (e) => {
+        e.preventDefault();
+        const reqPayload = {
+            ...attendantData
+        }
+        axios
+            .post(`${API_URL}/attendants`, reqPayload)
+            .then(response => {
+                console.log(response.data);
+                resetForm();
+            })
+
+            .catch(err => { console.log(err) })
+        const resetForm = () => {
+            setAttendantData({
+                id: '',
+                eventid: '',
+                name: '',
+                lastName: '',
+                favouriteMusicGenre: [''],
+                birth: '',
+                email: '',
+                premium: '',
+                dni: '',
+                avatar: '',
+                gender: ''
+            })
+        }
+
+    }
+
+
     return (
         <div className="AttendantsForm">
             <Container />
-            <Form>
+            <Form onSubmit={handleEventSubmit}>
                 <Row className="mb-2">
 
                     <Form.Group as={Col} controlId="formGridName">
@@ -74,12 +110,12 @@ const AttendantsForm = () => {
                 <Row>
                     <Form.Group as={Col} controlId="formGridName">
                         <Form.Label>Email</Form.Label>
-                        <Form.Control type="text" value={attendantData.email} onChange={handleAttendantChange} name="text" ></Form.Control>
+                        <Form.Control type="text" value={attendantData.email} onChange={handleAttendantChange} name="email" ></Form.Control>
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridName">
                         <Form.Label>Fecha de nacimiento</Form.Label>
-                        <Form.Control type="text" value={attendantData.birth} onChange={handleAttendantChange} name="text" ></Form.Control>
+                        <Form.Control type="text" value={attendantData.birth} onChange={handleAttendantChange} name="birth" ></Form.Control>
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridName">
