@@ -53,7 +53,7 @@ const EventForm = () => {
             location: { ...location },
             price: { ...price },
             cover: "https://cdn.pixabay.com/photo/2019/10/15/03/16/black-and-white-4550471_960_720.jpg"
-        };
+        }
 
         console.log("Este es el envío del form", reqPayload);
 
@@ -62,10 +62,36 @@ const EventForm = () => {
             .then(response => {
                 console.log("este es el response:", response.data);
                 resetForm();
+
             })
             .catch(error => {
                 console.error(error);
             })
+
+        const resetForm = () => {
+            setEventDate({
+                title: '',
+                genres: '',
+                capacity: 0,
+                date: '',
+                vip: false,
+                description: '',
+                minAge: '',
+                available: true
+            });
+
+            setLocation({
+                street: '',
+                city: '',
+                zipcode: ''
+            });
+
+            setPrice({
+                regular: 0,
+                early: 0
+            });
+        };
+
     }
 
     return (
@@ -163,10 +189,10 @@ const EventForm = () => {
                         </Form.Group>
                     </Row>
 
-                    <Link to={"/eventos"}><Button variant="primary" type="submit">
+                    <Button variant="primary" type="submit">
                         Crear Evento
                     </Button>
-                    </Link>
+
                 </Form>
             </Container>
         </div>
