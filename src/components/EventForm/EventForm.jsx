@@ -1,5 +1,8 @@
+import axios from 'axios';
 import { useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+
+const API_URL = "http://localhost:5005"
 
 const EventForm = () => {
     const [eventData, setEventDate] = useState({
@@ -10,7 +13,8 @@ const EventForm = () => {
         vip: false,
         description: '',
         minAge: '',
-        available: true
+        available: true,
+        cover: '2760d0157c6b9d0719819c865042c690.jpg'
     });
 
     const [location, setLocation] = useState({
@@ -39,10 +43,32 @@ const EventForm = () => {
         setEventDate({ ...eventData, [name]: value });
     };
 
+    const handleEventSubmit = (e) => {
+        e.preventDefault();
+
+        const reqPayload = {
+            ...eventData,
+            location: { ...location },
+            price: { ...price }
+        };
+
+        console.log("Este es el envío del form", reqPayload);
+
+        axios
+            .post(`${API_URL}/events`, reqPayload)
+            .then(response => {
+                console.log("este es el response:", response.data);
+                resetForm();
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
+
     return (
         <div className="classname">
             <Container>
-                <Form>
+                <Form onSubmit={handleEventSubmit}>
                     <Row className="mb-3">
                         <Form.Group as={Col} xs={8} controlId="formEventName">
                             <Form.Label>Nombre del evento</Form.Label>
@@ -57,12 +83,12 @@ const EventForm = () => {
                         <Row className="mb-3">
                             <Form.Group as={Col} xs={2} controlId="formEventPriceRegular">
                                 <Form.Label>Precio Regular</Form.Label>
-                                <Form.Control type="number" min={0} value={price.regular} onChange={handlePriceChange} name="regular" />
+                                <Form.Control type="number" value={price.regular} onChange={handlePriceChange} name="regular" />
                             </Form.Group>
 
                             <Form.Group as={Col} xs={2} controlId="formEventPriceEarly">
                                 <Form.Label>Precio Anticipado</Form.Label>
-                                <Form.Control type="number" min={0} value={price.early} onChange={handlePriceChange} name="early" />
+                                <Form.Control type="number" value={price.early} onChange={handlePriceChange} name="early" />
                             </Form.Group>
                         </Row>
                     </Row>
@@ -70,7 +96,7 @@ const EventForm = () => {
                     <Row className="mb-3">
                         <Form.Group as={Col} xs={8} controlId="formEventAgeRequirement">
                             <Form.Label>Requerimiento de Edad</Form.Label>
-                            <Form.Control type="number" placeholder="Edad mínima (e.g., 18)" min={0} value={eventData.minAge} onChange={handleEventChange} name="minAge" />
+                            <Form.Control type="number" placeholder="Edad mínima (e.g., 18)" value={eventData.minAge} onChange={handleEventChange} name="minAge" />
                         </Form.Group>
 
                         <Form.Group as={Col} xs={4} controlId="formEventVipReserved">
@@ -91,29 +117,29 @@ const EventForm = () => {
                     <Row className="mb-3">
                         <Form.Group controlId="formEventDescription">
                             <Form.Label>Descripción</Form.Label>
-                            <Form.Control as="textarea" rows={3} required value={eventData.description} onChange={handleEventChange} name="description" />
+                            <Form.Control as="textarea" rows={3} value={eventData.description} onChange={handleEventChange} name="description" />
                         </Form.Group>
                     </Row>
 
                     <Form.Group className="mb-3" controlId="formEventLocation">
                         <Form.Label>Direccion del Evento</Form.Label>
-                        <Form.Control placeholder="1234 Calle Principal" required value={eventData.street} onChange={handleLocationChange} name="street" />
+                        <Form.Control placeholder="1234 Calle Principal" value={eventData.street} onChange={handleLocationChange} name="street" />
                     </Form.Group>
 
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="formEventDate">
                             <Form.Label>Fecha</Form.Label>
-                            <Form.Control type="date" required value={eventData.date} onChange={handleEventChange} name="date" />
+                            <Form.Control type="date" value={eventData.date} onChange={handleEventChange} name="date" />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formEventCity">
                             <Form.Label>Ciudad</Form.Label>
-                            <Form.Control required value={eventData.city} onChange={handleLocationChange} name="city" />
+                            <Form.Control value={eventData.city} onChange={handleLocationChange} name="city" />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formEventZip">
                             <Form.Label>Código Postal</Form.Label>
-                            <Form.Control required value={eventData.zipcode} onChange={handleLocationChange} name="zipcode" />
+                            <Form.Control value={eventData.zipcode} onChange={handleLocationChange} name="zipcode" />
                         </Form.Group>
                     </Row>
 
@@ -121,7 +147,7 @@ const EventForm = () => {
                         <Form.Group as={Col} controlId="formEventGenre">
                             <Form.Label>Género</Form.Label>
                             <Form.Select
-                                required
+
                                 name="genres"
                                 value={eventData.genres}
                                 onChange={handleEventChange}
@@ -135,7 +161,7 @@ const EventForm = () => {
                     </Row>
 
                     <Button variant="primary" type="submit">
-                        Enviar
+                        Crear Evento
                     </Button>
                 </Form>
             </Container>
@@ -144,3 +170,5 @@ const EventForm = () => {
 };
 
 export default EventForm;
+
+

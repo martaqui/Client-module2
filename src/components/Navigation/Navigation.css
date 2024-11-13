@@ -7,6 +7,7 @@
 
 .Navigation {
     background-color: white;
+
 }
 
 .Navigation nav a {
@@ -14,9 +15,38 @@
     color: inherit;
     list-style: none;
     font-size: 25px;
-    width: 500;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    text-shadow: 1px 1px 2px;
+
 }
 
-.Navigation nav img {
-    width: 10%;
+
+.navbar-icon {
+    width: 100px;
+
+    height: auto;
+
+    padding: 0;
+
+    margin: 0;
+
+    vertical-align: middle;
+
+}
+
+.navbar-search {
+    flex-grow: 1;
+
+    max-width: 400px;
+
+    margin: 0 15px;
+
+}
+
+.container-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

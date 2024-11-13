@@ -17,7 +17,7 @@ const HomePage = () => {
                     <Carousel.Caption className="d-flex justify-content-center align-items-center h-100">
                         <div className="carousel-overlay">
                             <h3>Experiencias Únicas</h3>
-                            <Link to="/eventos" className="btn btn-primary outline-light"  >Explorar</Link>
+                            <Link to="/eventos" className="btn btn-outline-light" >Explorar</Link>
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -31,7 +31,7 @@ const HomePage = () => {
                     <Carousel.Caption className="d-flex justify-content-center align-items-center h-100">
                         <div className="carousel-overlay">
                             <h3>Encuentra tu Alma Gemela</h3>
-                            <Link to="/eventos" className="btn btn-primary">Descubre Más</Link>
+                            <Link to="/eventos" className="btn btn-outline-light">Descubre Más</Link>
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -45,7 +45,7 @@ const HomePage = () => {
                     <Carousel.Caption className="d-flex justify-content-center align-items-center h-100">
                         <div className="carousel-overlay">
                             <h3>Disfruta con los Mejores</h3>
-                            <Link to="/eventos" className="btn btn-primary">Únete</Link>
+                            <Link to="/eventos" className="btn btn-outline-light" >Únete</Link>
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
