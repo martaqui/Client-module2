@@ -4,6 +4,7 @@ import NotFoundPage from "../pages/NotFoundPage/NotFoundPage"
 import EventsPage from "../pages/EventsPage/EventsPage"
 import ProfilePage from "../pages/ProfilePage/ProfilePage"
 import EventDetailsPage from "../pages/EventDetailsPage/EventDetailsPage"
+import AttendantsPage from "../pages/AttendantsPage/AttendantsPage"
 
 const AppRoutes = () => {
     return (
@@ -12,6 +13,7 @@ const AppRoutes = () => {
             <Route path="/eventos" element={<EventsPage />} />
             <Route path="/eventos/detalles/:eventId" element={<EventDetailsPage />} />
             <Route path="/perfil" element={<ProfilePage />} />
+            <Route path="/perfil/registro" element={<AttendantsPage />} />
 
             <Route path="*" element={<NotFoundPage />} />
         </Routes>

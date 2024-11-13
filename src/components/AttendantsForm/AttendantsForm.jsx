@@ -88,7 +88,7 @@ const AttendantsForm = () => {
                     </Form.Group>
                 </Row>
                 <Row className="mb-3">
-                    <Form.Group as={Col} controlId="formGridState">
+                    <Form.Group as={Col} xs={6} controlId="formGridState">
                         <Form.Label>Género</Form.Label>
                         <Form.Select
                             placeholder="Género"
@@ -102,12 +102,12 @@ const AttendantsForm = () => {
                         </Form.Select>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" id="formGridCheckbox">
+                    <Form.Group as={Col} xs={6} id="formGridCheckbox" className="d-flex align-items-center mt-3">
                         <Form.Check type="checkbox" label="Check me out if you are premium" />
                     </Form.Group>
 
                 </Row>
-                <Button variant="primary" type="submit">
+                <Button variant="dark" type="submit" className="mt-4">
                     Submit
                 </Button>
             </Form>

@@ -6,6 +6,7 @@ const Footer = () => {
     return (
         <footer className="footer bg-dark text-center py-4">
             <Container>
+                <p>Bienvenido a la plataforma definitiva para los amantes de la fiesta. Aquí puedes comprar entradas para los mejores eventos de Techno y Reguetón, y además, si eres organizador, publicar tus propias fiestas para que la comunidad las descubra y adquiera entradas. ¡Conéctate con la mejor música, las mejores fiestas, y lleva tu evento al siguiente nivel!</p>
                 <div className="social-buttons">
                     <Button
                         className="rounded-circle mx-2 p-3"

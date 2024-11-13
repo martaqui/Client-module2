@@ -141,9 +141,9 @@ const EventForm = () => {
                             <Form.Label>Código Postal</Form.Label>
                             <Form.Control value={eventData.zipcode} onChange={handleLocationChange} name="zipcode" />
                         </Form.Group>
-                    </Row>
 
-                    <Row className="mb-3">
+
+
                         <Form.Group as={Col} controlId="formEventGenre">
                             <Form.Label>Género</Form.Label>
                             <Form.Select

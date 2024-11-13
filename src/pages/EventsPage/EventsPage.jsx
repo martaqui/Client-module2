@@ -1,22 +1,22 @@
-import AttendantsForm from "../../components/AttendantsForm/AttendantsForm"
-import EventList from "../../components/EventList/EventList"
 import { Button, Container } from "react-bootstrap"
+
+import EventsList from "../../components/EventList/EventList"
 
 const EventsPage = () => {
 
     return (
         <div className="EventsPage">
-            <AttendantsForm />
-            {/* <Container>
+
+            <Container>
                 <h1>Nuestos eventos</h1>
                 <hr />
 
-                <EventList />
 
+                <EventsList />
                 <hr />
 
                 <Button variant="dark" className="mb-5" >Volver a inicio</Button>
-            </Container> */}
+            </Container>
         </div>
 
     )

@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import AttendantsList from "../../components/AttendantsList/AttendantsList"
 
 const API_URL = "http://localhost:5005"
 
@@ -24,6 +25,8 @@ const EventDetailsPage = () => {
             <h1>Detalles del evento {event.title}</h1>
             <hr />
             <p>Descripción: {event.description}</p>
+
+            <AttendantsList />
         </div>
     )
 }
