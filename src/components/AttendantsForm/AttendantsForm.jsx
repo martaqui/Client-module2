@@ -46,7 +46,9 @@ const AttendantsForm = () => {
     const handleEventSubmit = (e) => {
         e.preventDefault();
         const reqPayload = {
-            ...attendantData
+            ...attendantData,
+            eventid: URl
+
         }
         axios
             .post(`${API_URL}/attendants`, reqPayload)

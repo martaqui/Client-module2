@@ -5,7 +5,7 @@ const AttendantsCard = ({ name, lastName, favouriteMusicGenre, genre, premium, a
     return (
 
         <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Img variant="top" src={avatar} />
             <Card.Body>
                 <Card.Title>{name}{lastName}</Card.Title>
                 <Card.Text>

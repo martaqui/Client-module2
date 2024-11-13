@@ -30,7 +30,7 @@ const AttendantsList = () => {
                     attendants.map(elm => {
                         return (
                             <Col key={elm.id}>
-                                <AttendantsCard />
+                                <AttendantsCard {...elm} />
                             </Col>
                         )
                     })
