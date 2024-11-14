@@ -18,9 +18,9 @@ const AppRoutes = () => {
             <Route path="/perfil" element={<ProfilePage />} />
             <Route path="/evento/:eventId/registro" element={<FormUserPage />} />
             <Route path="/Create/Event/Form" element={<CreateEventPage />} />
-            <Route path="/edit/attendant/form" element={<EditAttendantsPage />} />
             <Route path="/Edit/:eventID/Form" element={<EditEventFormPage />} />
 
+            <Route path="/edit/attendant/:id/form" element={<EditAttendantsPage />} />
 
             <Route path="*" element={<NotFoundPage />} />
         </Routes>
