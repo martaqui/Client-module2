@@ -1,7 +1,12 @@
+import EditAttendantsForm from "../../components/EditAttendantsForm/EditAttendantsForm"
+
 const EditAttendantsPage = () => {
+
     return (
-        <div className="EditAttendantsPage">
-            <h1>hollloooo</h1>
+        <div className="EditAttendantsForm">
+            <h1>Editar asistente</h1>
+            <EditAttendantsForm />
+
         </div>
     )
 }

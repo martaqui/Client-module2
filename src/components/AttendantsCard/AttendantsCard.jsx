@@ -12,7 +12,7 @@ const AttendantsCard = ({ name, lastName, favouriteMusicGenre, genre, premium, a
                     <Card.Body>
                         <Card.Title>{name}{lastName}</Card.Title>
 
-                        <Link to={""}> <Button variant="primary">Editar Attendant</Button></Link>
+                        <Link to={"/edit/attendants/form"}> <Button variant="primary">Editar Perfil</Button></Link>
                     </Card.Body>
                 </Card>
             </Container>
