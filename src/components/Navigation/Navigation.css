@@ -3,10 +3,12 @@
     flex-wrap: wrap;
     position: sticky;
 
+
 }
 
 .Navigation {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
+    color: black;
 
 }
 
@@ -14,12 +16,17 @@
     text-decoration: none;
     color: inherit;
     list-style: none;
+
     font-size: 25px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    text-shadow: 1px 1px 2px;
 
+}
+
+.Navigation nav a:hover {
+    text-shadow: 1px 1px 10px rgb(255, 94, 151);
+    transition: 1s;
 }
 
 

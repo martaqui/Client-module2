@@ -72,7 +72,7 @@ const HomePage = () => {
                 <h2 style={{ color: 'white', fontSize: 45 }}>encuentra tus eventos favoritos</h2>
                 <article>
 
-                    <Row className="mb-4">
+                    <Row className="mb-4 Imgsbott">
                         <Col>
                             <div className="card">
                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE8jQaoNIKuzTFErH73ilq4n0-VXfOFr8AaCcXvsg_ptak65Dk43GhnOGZH-kyRcnjOZU&usqp=CAU" alt="Fiesta 1" className="img-custom rounded-top" />
@@ -94,7 +94,7 @@ const HomePage = () => {
                             </div>
                         </Col>
                     </Row>
-                    <Row className="mb-4">
+                    <Row className="mb-4 Imgsbott">
                         <Col>
                             <div className="card">
                                 <img src="https://media.istockphoto.com/id/92093747/photo/fans.jpg?s=612x612&w=0&k=20&c=71zIa7qnQYpcQ-PXp1c-LzXsCUiuS9udtCd5M3y6UBM=" alt="Fiesta 3" className="img-custom rounded-top" />
