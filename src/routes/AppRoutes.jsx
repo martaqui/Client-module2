@@ -6,6 +6,7 @@ import ProfilePage from "../pages/ProfilePage/ProfilePage"
 import EventDetailsPage from "../pages/EventDetailsPage/EventDetailsPage"
 import FormUserPage from "../pages/FormUser/FormUserPage"
 import CreateEventPage from "../pages/CreateEventsPage/CreateEventsPage"
+import EditAttendantsPage from "../pages/EditAttendantsPage/EditAttendantsPage"
 
 const AppRoutes = () => {
     return (
@@ -16,6 +17,7 @@ const AppRoutes = () => {
             <Route path="/perfil" element={<ProfilePage />} />
             <Route path="/evento/:eventId/registro" element={<FormUserPage />} />
             <Route path="/Create/Event/Form" element={<CreateEventPage />} />
+            <Route path="/Editar/Attendants/Form" element={<EditAttendantsPage />} />
 
 
             <Route path="*" element={<NotFoundPage />} />
