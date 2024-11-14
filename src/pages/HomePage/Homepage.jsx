@@ -73,7 +73,7 @@ const HomePage = () => {
                 <h2 style={{ color: 'white', fontSize: 45 }}>encuentra tus eventos favoritos</h2>
                 <article>
 
-                    <Row className="mb-4">
+                    <Row className="mb-4 Imgsbott">
                         <Col>
                             <div className="card">
                                 <img src={IMAGE_PATH.CARDIMG1}
@@ -96,7 +96,7 @@ const HomePage = () => {
                             </div>
                         </Col>
                     </Row>
-                    <Row className="mb-4">
+                    <Row className="mb-4 Imgsbott">
                         <Col>
                             <div className="card">
                                 <img src={IMAGE_PATH.CARDIMG3} />

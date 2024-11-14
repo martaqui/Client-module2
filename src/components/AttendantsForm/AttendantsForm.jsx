@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import "./AttendantsForm.css"
 
 const API_URL = "http://localhost:5005"
 
@@ -80,6 +81,16 @@ const AttendantsForm = () => {
     return (
         <div className="AttendantsForm">
             <Container />
+
+            <Row>
+                <Col><h1>Confirma tu asistencia al evento aqui!</h1></Col>
+
+                <Row> <Col><h2>Disfruta compartiendo tus gustos!</h2></Col></Row>
+
+            </Row>
+
+            <br />
+
             <Form onSubmit={handleEventSubmit}>
                 <Row className="mb-2">
 
@@ -145,9 +156,10 @@ const AttendantsForm = () => {
                     </Form.Group>
 
                 </Row>
-                <Button variant="dark" type="submit" className="mt-4">
-                    Submit
+                <Col> <Button variant="primary" className="btn btn-outline-light AttendantsButton" type="submit">
+                    Registrarte
                 </Button>
+                </Col>
             </Form>
 
         </div>

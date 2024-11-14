@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import "./EventForm.css"
+import iconImg from "./../../assets/img/iconPag2.png"
 
 
 const API_URL = "http://localhost:5005"
@@ -95,8 +96,17 @@ const EventForm = () => {
     }
 
     return (
-        <div className="classname">
+        <div className="EventForm">
             <Container>
+                <Row>
+                    <Col><h1>Sientete libre de crear tu evento</h1></Col>
+
+                    <Row> <Col><h2>Disfruta compartiendo tus gustos!</h2></Col></Row>
+
+                </Row>
+
+                <br />
+
                 <Form onSubmit={handleEventSubmit}>
                     <Row className="mb-3">
                         <Form.Group as={Col} xs={8} controlId="formEventName">
@@ -188,10 +198,12 @@ const EventForm = () => {
                             </Form.Select>
                         </Form.Group>
                     </Row>
-
-                    <Button variant="primary" type="submit">
+                    <Col> <Button variant="primary" className="btn btn-outline-light" type="submit">
                         Crear Evento
                     </Button>
+                    </Col>
+
+
 
                 </Form>
             </Container>
