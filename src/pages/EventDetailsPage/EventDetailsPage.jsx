@@ -68,10 +68,8 @@ const EventDetailsPage = () => {
 
                                 </Col>
 
-                                <Button variant="dark">
-                                    <Link to="/perfil/registro" style={{ textDecoration: 'none', color: 'inherit' }}>
-                                        QUIERO ASISTIR A ESTE EVENTO
-                                    </Link>
+                                <Button variant="dark" as={Link} to="/perfil/registro">
+                                    QUIERO ASISTIR A ESTE EVENTO
                                 </Button>
 
                             </Row>
