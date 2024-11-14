@@ -79,8 +79,11 @@ const EventDetailsPage = () => {
                             <Row>
                                 <AttendantsList />
                             </Row>
+                            <br />
+
                         </>
                 }
+                <Row>  <Link to={"/Edit/Event/Form"}><button>Editar Evento</button></Link>  </Row>
             </Container>
         </div >
     );

@@ -19,7 +19,7 @@ const Navigation = () => {
                     />
                     <Link to={"/"}><li>Home</li></Link>
                     <Link to={"/eventos"}><li>Events</li></Link>
-                    <Link to={"/perfil"}><li>Profile</li></Link>
+                    <Link to={"/Edit/Event/Form"}><li>Profile</li></Link>
                 </div>
             </nav >
         </div >
