@@ -3,11 +3,15 @@ import { useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import "./EventForm.css"
 import iconImg from "./../../assets/img/iconPag2.png"
+import { useNavigate } from 'react-router-dom';
 
 
 const API_URL = "http://localhost:5005"
 
 const EventForm = () => {
+
+    const navigate = useNavigate()
+
     const [eventData, setEventDate] = useState({
         title: '',
         genres: '',
@@ -47,6 +51,7 @@ const EventForm = () => {
     };
 
     const handleEventSubmit = (e) => {
+
         e.preventDefault();
 
         const reqPayload = {
@@ -61,8 +66,9 @@ const EventForm = () => {
         axios
             .post(`${API_URL}/events`, reqPayload)
             .then(response => {
+
                 console.log("este es el response:", response.data);
-                resetForm();
+                navigate(`/eventos/detalles/${response.data.id}`);
 
             })
             .catch(error => {

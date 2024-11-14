@@ -1,20 +1,22 @@
+import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 const AttendantsCard = ({ name, lastName, favouriteMusicGenre, genre, premium, avatar }) => {
     return (
+        <div className="Attendantscard">
+            <Container>
+                <Card style={{ width: '18rem' }}>
+                    <Card.Img variant="top" src={avatar} />
+                    <Card.Body>
+                        <Card.Title>{name}{lastName}</Card.Title>
 
-        <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={avatar} />
-            <Card.Body>
-                <Card.Title>{name}{lastName}</Card.Title>
-                <Card.Text>
-                    Some quick example text to build on the card title and make up the
-                    bulk of the card's content.
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-        </Card>
+                        <Link to={""}> <Button variant="primary">Editar Attendant</Button></Link>
+                    </Card.Body>
+                </Card>
+            </Container>
+        </div>
     )
 }
 export default AttendantsCard
