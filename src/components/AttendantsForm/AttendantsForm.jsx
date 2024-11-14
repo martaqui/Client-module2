@@ -6,14 +6,17 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import "./AttendantsForm.css"
+import { useParams, useNavigate } from "react-router-dom";
 
 const API_URL = "http://localhost:5005"
 
 const AttendantsForm = () => {
-
+    const navigate = useNavigate()
+    const { eventId } = useParams()
+    const numericEventId = Number(eventId)
     const [attendantData, setAttendantData] = useState({
         id: '',
-        eventid: '',
+        eventId: numericEventId,
         name: '',
         lastName: '',
         favouriteMusicGenre: [''],
@@ -48,32 +51,21 @@ const AttendantsForm = () => {
         e.preventDefault();
         const reqPayload = {
             ...attendantData,
-            eventid: URl
+            eventId: numericEventId,
+            avatar: "https://static-00.iconduck.com/assets.00/profile-default-icon-1024x1023-4u5mrj2v.png"
 
         }
         axios
             .post(`${API_URL}/attendants`, reqPayload)
             .then(response => {
                 console.log(response.data);
-                resetForm();
+                navigate(`/eventos/detalles/${response.data.eventId}`)
+
             })
 
             .catch(err => { console.log(err) })
-        const resetForm = () => {
-            setAttendantData({
-                id: '',
-                eventid: '',
-                name: '',
-                lastName: '',
-                favouriteMusicGenre: [''],
-                birth: '',
-                email: '',
-                premium: '',
-                dni: '',
-                avatar: '',
-                gender: ''
-            })
-        }
+
+
 
     }
 

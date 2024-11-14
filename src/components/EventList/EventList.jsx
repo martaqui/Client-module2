@@ -11,7 +11,6 @@ const API_URL = "http://localhost:5005"
 const EventsList = () => {
 
     const [events, setEvents] = useState([])
-
     useEffect(() => {
         fetchEvents()
     }, [])
