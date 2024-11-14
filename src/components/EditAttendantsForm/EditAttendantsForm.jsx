@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+
 import { Button, Col, Row } from 'react-bootstrap';
 
 
@@ -10,7 +12,7 @@ const API_URL = "http://localhost:5005";
 const EditAttendantsForm = () => {
 
     const { attendantId } = useParams();
-
+    const navigate = useNavigate()
     const [attendantData, setAttendantData] = useState();
     const [isLoading, setIsLoading] = useState(true)
 
@@ -30,28 +32,43 @@ const EditAttendantsForm = () => {
 
     const handleAttendantSubmit = (e) => {
         e.preventDefault()
+        const reqPayload = {
+            ...attendantData
+        }
+        axios
+            .put(`${API_URL}/attendants/${attendantId}`, reqPayload)
+            .then(response => {
+                navigate(`/eventos/detalles/${response.data.eventId}`)
+
+            })
+            .catch(err => { console.log(err) })
+
     }
     const addNewGenre = () => {
         const genresCopy = [...attendantData.favouriteMusicGenre]
         genresCopy.push('')
         setAttendantData({ ...attendantData, favouriteMusicGenre: genresCopy })
     }
+    const handleAttendantChange = e => {
+        const { name, value } = e.target;
+        setAttendantData({ ...attendantData, [name]: value });
+    }
     return (
         <div className="EditAttendantsForm">
             {
                 isLoading ? <h1>CARGHANDO</h1> :
-                    <Form>
+                    <>
                         <Form onSubmit={handleAttendantSubmit} >
                             <Row className="mb-2">
 
                                 <Form.Group as={Col} controlId="formGridName">
                                     <Form.Label>Name</Form.Label>
-                                    <Form.Control type="text" value={attendantData.name} name="name" ></Form.Control>
+                                    <Form.Control type="text" value={attendantData.name} name="name" onChange={handleAttendantChange} ></Form.Control>
                                 </Form.Group>
 
                                 <Form.Group as={Col} controlId="formGridLastName">
                                     <Form.Label>LastName</Form.Label>
-                                    <Form.Control type="text" value={attendantData.lastName} name="lastName" ></Form.Control>
+                                    <Form.Control type="text" value={attendantData.lastName} name="lastName" onChange={handleAttendantChange} ></Form.Control>
                                 </Form.Group>
 
                                 <Form.Group as={Col} controlId="formGridGenreField">
@@ -73,17 +90,17 @@ const EditAttendantsForm = () => {
                             <Row>
                                 <Form.Group as={Col} controlId="formGridName">
                                     <Form.Label>Email</Form.Label>
-                                    <Form.Control type="text" value={attendantData.email} name="email"  ></Form.Control>
+                                    <Form.Control type="text" value={attendantData.email} name="email" onChange={handleAttendantChange} ></Form.Control>
                                 </Form.Group>
 
                                 <Form.Group as={Col} controlId="formGridName">
                                     <Form.Label>Fecha de nacimiento</Form.Label>
-                                    <Form.Control type="text" value={attendantData.birth} name="birth" ></Form.Control>
+                                    <Form.Control type="text" value={attendantData.birth} name="birth" onChange={handleAttendantChange}></Form.Control>
                                 </Form.Group>
 
                                 <Form.Group as={Col} controlId="formGridName">
                                     <Form.Label>Número de telefono</Form.Label>
-                                    <Form.Control type="number" value={attendantData.phone} name="phone" ></Form.Control>
+                                    <Form.Control type="number" value={attendantData.phone} name="phone" onChange={handleAttendantChange}></Form.Control>
                                 </Form.Group>
                             </Row>
                             <Row className="mb-3">
@@ -94,6 +111,7 @@ const EditAttendantsForm = () => {
                                         value={attendantData.gender}
 
                                         name={'gender'}
+                                        onChange={handleAttendantChange}
                                     >
                                         <option value="">Seleccionar género</option>
                                         <option value="Mujer">Mujer</option>
@@ -111,7 +129,7 @@ const EditAttendantsForm = () => {
                             </Button>
                             </Col>
                         </Form>
-                    </Form>
+                    </>
             }
         </div>
     )
