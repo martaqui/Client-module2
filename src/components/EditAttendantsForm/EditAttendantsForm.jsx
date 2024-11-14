@@ -11,7 +11,7 @@ const API_URL = "http://localhost:5005";
 
 const EditAttendantsForm = () => {
 
-    const { attendantId } = useParams();
+    const { id } = useParams();
     const navigate = useNavigate()
     const [attendantData, setAttendantData] = useState();
     const [isLoading, setIsLoading] = useState(true)
@@ -22,7 +22,7 @@ const EditAttendantsForm = () => {
 
     const fetchAttendantData = () => {
         axios
-            .get(`${API_URL}/attendants/${attendantId}`)
+            .get(`${API_URL}/attendants/${id}`)
             .then(response => {
                 setAttendantData(response.data)
                 setIsLoading(false)
@@ -36,7 +36,7 @@ const EditAttendantsForm = () => {
             ...attendantData
         }
         axios
-            .put(`${API_URL}/attendants/${attendantId}`, reqPayload)
+            .put(`${API_URL}/attendants/${id}`, reqPayload)
             .then(response => {
                 navigate(`/eventos/detalles/${response.data.eventId}`)
 

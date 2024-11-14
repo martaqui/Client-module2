@@ -14,7 +14,7 @@ const AttendantsCard = ({ id, name, lastName, favouriteMusicGenre, genre, premiu
                     <Card.Img variant="top" src={avatar} alt={`${name} ${lastName}`} />
                     <Card.Body>
                         <Card.Title>{name} {lastName}</Card.Title>
-                        <Button variant="danger" onClick={onDelete} style={{ marginLeft: '10px' }}>
+                        <Button variant="danger" style={{ marginLeft: '10px' }}>
                             <FaTrashAlt />
                         </Button>
                         <Link to={`/edit/attendant/${id}/form`} o><Button variant="danger" style={{ marginLeft: '10px' }}>
