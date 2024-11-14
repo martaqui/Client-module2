@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import './EditEventForm.css';
 
 const API_URL = "http://localhost:5005";
-x
+
 const EditEventForm = ({ id }) => {
     const navigate = useNavigate();
 
