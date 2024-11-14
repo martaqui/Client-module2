@@ -1,43 +1,48 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
-import AttendantsCard from "../AttendantsCard/AttendantsCard"
-import { Col, Row } from "react-bootstrap"
-const API_URL = "http://localhost:5005"
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import AttendantsCard from "../AttendantsCard/AttendantsCard";
+import { Col, Row } from "react-bootstrap";
+const API_URL = "http://localhost:5005";
 
 const AttendantsList = () => {
-
-    const [attendants, setAttendants] = useState([])
-
-    const { eventId } = useParams()
+    const [attendants, setAttendants] = useState([]);
+    const { eventId } = useParams();
 
     useEffect(() => {
-        fetchAttendantsList()
-    }, [])
+        fetchAttendantsList();
+    }, []);
 
     const fetchAttendantsList = () => {
         axios
             .get(`${API_URL}/attendants?eventId=${eventId}`)
             .then(response => setAttendants(response.data))
-            .catch(err => console.log(err))
-    }
+            .catch(err => console.log(err));
+    };
+
+    const handleDeleteAttendant = (attendantId) => {
+        axios
+            .delete(`${API_URL}/attendants/${attendantId}`)
+            .then(() => {
+                setAttendants(prev => prev.filter(attendant => attendant.id !== attendantId));
+            })
+            .catch(err => console.error(err));
+    };
 
     return (
-
         <div className="AttendantsList">
             <Row>
-                {
-                    attendants.map(elm => {
-                        return (
-                            <Col key={elm.id}>
-                                <AttendantsCard {...elm} />
-                            </Col>
-                        )
-                    })
-                }
+                {attendants.map(elm => (
+                    <Col key={elm.id}>
+                        <AttendantsCard
+                            {...elm}
+                            onDelete={() => handleDeleteAttendant(elm.id)}
+                        />
+                    </Col>
+                ))}
             </Row>
-
         </div>
-    )
-}
-export default AttendantsList
+    );
+};
+
+export default AttendantsList;

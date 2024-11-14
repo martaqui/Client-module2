@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import "./EventForm.css"
-import iconImg from "./../../assets/img/iconPag2.png"
+import "./CreateEventForm.css"
 import { useNavigate } from 'react-router-dom';
 
 
