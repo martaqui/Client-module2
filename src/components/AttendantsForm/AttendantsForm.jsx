@@ -11,9 +11,10 @@ const API_URL = "http://localhost:5005"
 
 const AttendantsForm = () => {
 
+    const { eventid } = Number(eventid)
     const [attendantData, setAttendantData] = useState({
         id: '',
-        eventid: '',
+        eventid: eventid,
         name: '',
         lastName: '',
         favouriteMusicGenre: [''],
@@ -48,7 +49,8 @@ const AttendantsForm = () => {
         e.preventDefault();
         const reqPayload = {
             ...attendantData,
-            eventid: URl
+            eventId: eventid,
+            avatar: "https://static-00.iconduck.com/assets.00/user-icon-1024x1024-unb6q333.png"
 
         }
         axios
