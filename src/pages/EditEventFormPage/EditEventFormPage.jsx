@@ -1,13 +1,15 @@
-import EditEventForm from "../../components/EditEventform/EditEventForm"
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import EditEventForm from './../../components/EditEventform/EditEventForm';
 
 const EditEventFormPage = () => {
+    const { id } = useParams();
+
     return (
-
         <div className="EditEventForm">
-            <h1>hola</h1>
-
-            <EditEventForm />
+            <EditEventForm id={id} />
         </div>
-    )
-}
-export default EditEventFormPage
+    );
+};
+
+export default EditEventFormPage;

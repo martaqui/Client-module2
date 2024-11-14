@@ -4,11 +4,12 @@ import Card from 'react-bootstrap/Card';
 import { FaTrashAlt } from 'react-icons/fa';
 import { RxMagicWand } from "react-icons/rx";
 import { Link } from 'react-router-dom';
+import "./AttendantsCard.css"
 
 const AttendantsCard = ({ id, name, lastName, favouriteMusicGenre, genre, premium, avatar }) => {
     return (
         <div className="AttendantsCard">
-            <Container>
+            <Container className='CardA'>
                 <Card style={{ width: '18rem' }}>
                     <Card.Img variant="top" src={avatar} alt={`${name} ${lastName}`} />
                     <Card.Body>

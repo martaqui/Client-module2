@@ -79,11 +79,9 @@ const EventDetailsPage = () => {
                                     <Button variant="primary" className="btn btn-outline-light" onClick={deleteEvent} type="submit">
                                         Eliminar evento
                                     </Button>
-                                    <Link to={`/Edit/${event.id}/Form`}>
-                                        <Button variant="primary" className="btn btn-outline-light" type="submit">
-                                            Editar evento
-                                        </Button>
-                                    </Link>
+                                    <Button as={Link} to={`/evento/${event.id}/editar`} variant="primary" className="btn btn-outline-light" type="submit">
+                                        Editar evento
+                                    </Button>
                                 </Row>
                             </Col>
                         </Row>
