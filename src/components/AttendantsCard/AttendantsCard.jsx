@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
-const AttendantsCard = ({ name, lastName, favouriteMusicGenre, genre, premium, avatar }) => {
+const AttendantsCard = ({ id, name, lastName, favouriteMusicGenre, genre, premium, avatar }) => {
     return (
         <div className="Attendantscard">
             <Container>
@@ -12,7 +12,7 @@ const AttendantsCard = ({ name, lastName, favouriteMusicGenre, genre, premium, a
                     <Card.Body>
                         <Card.Title>{name}{lastName}</Card.Title>
 
-                        <Link to={"/edit/attendants/form"}> <Button variant="primary">Editar Perfil</Button></Link>
+                        <Link to={`/edit/attendant/${id}/form`}> <Button variant="primary">Editar Perfil</Button></Link>
                     </Card.Body>
                 </Card>
             </Container>
