@@ -55,49 +55,17 @@ const EventForm = () => {
 
         const reqPayload = {
             ...eventData,
-            location: { ...location },
-            price: { ...price },
+            location: location,
+            price: price,
             cover: "https://cdn.pixabay.com/photo/2019/10/15/03/16/black-and-white-4550471_960_720.jpg"
         }
-
-        console.log("Este es el envío del form", reqPayload);
 
         axios
             .post(`${API_URL}/events`, reqPayload)
             .then(response => {
-
-                console.log("este es el response:", response.data);
                 navigate(`/eventos/detalles/${response.data.id}`);
-
             })
-            .catch(error => {
-                console.error(error);
-            })
-
-        const resetForm = () => {
-            setEventDate({
-                title: '',
-                genres: '',
-                capacity: 0,
-                date: '',
-                vip: false,
-                description: '',
-                minAge: '',
-                available: true
-            });
-
-            setLocation({
-                street: '',
-                city: '',
-                zipcode: ''
-            });
-
-            setPrice({
-                regular: 0,
-                early: 0
-            });
-        };
-
+            .catch(error => console.error(error))
     }
 
     return (
@@ -186,12 +154,9 @@ const EventForm = () => {
                             <Form.Control value={eventData.zipcode} onChange={handleLocationChange} name="zipcode" />
                         </Form.Group>
 
-
-
                         <Form.Group as={Col} controlId="formEventGenre">
                             <Form.Label>Género</Form.Label>
                             <Form.Select
-
                                 name="genres"
                                 value={eventData.genres}
                                 onChange={handleEventChange}
@@ -203,12 +168,11 @@ const EventForm = () => {
                             </Form.Select>
                         </Form.Group>
                     </Row>
-                    <Col> <Button variant="primary" className="btn btn-outline-light" type="submit">
-                        Crear Evento
-                    </Button>
+                    <Col>
+                        <Button variant="primary" className="btn btn-outline-light" type="submit">
+                            Crear Evento
+                        </Button>
                     </Col>
-
-
 
                 </Form>
             </Container>

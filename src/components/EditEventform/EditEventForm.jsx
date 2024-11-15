@@ -1,12 +1,16 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import './EditEventForm.css';
+
 
 const API_URL = "http://localhost:5005";
 
-const EditEventForm = ({ id }) => {
+const EditEventForm = () => {
+
+    const { id } = useParams();
+
     const navigate = useNavigate();
 
     const [eventData, setEventData] = useState({
@@ -35,7 +39,9 @@ const EditEventForm = ({ id }) => {
         axios
             .get(`${API_URL}/events/${id}`)
             .then(response => {
-                const event = response.data;
+
+                const { data: event } = response
+
                 setEventData({
                     title: event.title,
                     genres: event.genres,
