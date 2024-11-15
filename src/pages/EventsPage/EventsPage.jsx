@@ -7,6 +7,8 @@ import './EventsPage.css'
 const EventsPage = () => {
 
     return (
+
+
         <div className="EventsPage">
 
             <Container>
@@ -16,7 +18,7 @@ const EventsPage = () => {
                         <h1>Nuestos eventos</h1>
                     </Col>
                     <Col>
-                        <Link style={{ textDecoration: none }} to={"/Create/Event/Form"}><h1>Crea tu Evento</h1></Link>
+                        <Link style={{ textDecoration: none }} to={"/crear/evento"}><h1>Crea tu Evento</h1></Link>
                     </Col>
                 </Row>
 

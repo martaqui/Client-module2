@@ -17,7 +17,7 @@ const AttendantsCard = ({ id, name, lastName, favouriteMusicGenre, genre, premiu
                         <Button variant="danger" style={{ marginLeft: '10px' }}>
                             <FaTrashAlt />
                         </Button>
-                        <Link to={`/edit/attendant/${id}/form`}>
+                        <Link to={`/editar/asistente/${id}`}>
                             <Button variant="danger" style={{ marginLeft: '10px' }}>
                                 <RxMagicWand />
                             </Button>

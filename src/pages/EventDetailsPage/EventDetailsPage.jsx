@@ -4,7 +4,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import './EventDetailsPage.css';
 import AttendantsList from "../../components/AttendantsList/AttendantsList";
-
+import Modal from 'react-bootstrap/Modal';
 const API_URL = "http://localhost:5005";
 
 const EventDetailsPage = () => {
@@ -13,6 +13,8 @@ const EventDetailsPage = () => {
     const [event, setEvent] = useState();
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
+    const [showModal, setshowModal] = useState(false)
+
 
     useEffect(() => {
         fetchEventDetails();
@@ -36,6 +38,10 @@ const EventDetailsPage = () => {
             })
             .catch(err => console.error(err));
     };
+
+    const handleCancelButton = () => {
+        setshowModal(false)
+    }
 
     return (
         <div className="EventDetailsPage">
@@ -79,7 +85,7 @@ const EventDetailsPage = () => {
                                 <Col>
                                     <img src={event.cover} alt={event.title} />
                                     <Row>
-                                        <Button variant="primary" className="btn btn-outline-light" onClick={deleteEvent} type="submit">
+                                        <Button variant="primary" className="btn btn-outline-light" onClick={() => setshowModal(true)} type="submit">
                                             Eliminar evento
                                         </Button>
                                         <Button as={Link} to={`/evento/${event.id}/editar`} variant="primary" className="btn btn-outline-light" type="submit">
@@ -97,6 +103,22 @@ const EventDetailsPage = () => {
 
                             <h1>Participantes</h1>
                             <AttendantsList />
+
+
+                            <Modal show={showModal} onHide={() => setshowModal(false)} >
+                                <Modal.Header closeButton>
+                                    <Modal.Title>¡Cuidado!</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>¿Esta seguro de que desea eliminar el evento?</Modal.Body>
+                                <Modal.Footer>
+                                    <Button variant="secondary" onClick={deleteEvent} >
+                                        Si
+                                    </Button>
+                                    <Button variant="primary" onClick={handleCancelButton} >
+                                        No
+                                    </Button>
+                                </Modal.Footer>
+                            </Modal>
                         </>
                     )}
             </Container>

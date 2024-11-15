@@ -6,8 +6,11 @@ import * as IMAGE_PATH from '../../consts/image-paths'
 
 
 const HomePage = () => {
+
+
     return (
         <div className="HomePage">
+
             <Carousel>
                 <Carousel.Item>
                     <img
@@ -56,6 +59,7 @@ const HomePage = () => {
             <h1>Las mejores fiestas de techno</h1>
             <br />
             <div className="img-container">
+
                 <Link to="/eventos">
                     <img
                         src={img}
