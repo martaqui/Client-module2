@@ -10,19 +10,26 @@ const EventsPage = () => {
         <div className="EventsPage">
 
             <Container>
+
                 <Row>
                     <Col xs="9">
                         <h1>Nuestos eventos</h1>
                     </Col>
-                    <Col><Link style={{ textDecoration: none }} to={"/Create/Event/Form"}><h1>Crea tu Evento</h1></Link></Col>
+                    <Col>
+                        <Link style={{ textDecoration: none }} to={"/Create/Event/Form"}><h1>Crea tu Evento</h1></Link>
+                    </Col>
                 </Row>
+
                 <hr />
 
+                <EventsList />
 
-                <EventsList className="listado" />
                 <hr />
 
-                <Link to={"/"}><Button variant="dark" className="mb-5" >Volver a inicio</Button></Link>
+                <Link to={"/"}>
+                    <Button variant="dark" className="mb-5" >Volver a inicio</Button>
+                </Link>
+
             </Container>
         </div>
 

@@ -1,8 +1,6 @@
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const API_URL = "http://localhost:5005"
-
 const EventCard = ({ cover, title, id }) => {
 
     return (

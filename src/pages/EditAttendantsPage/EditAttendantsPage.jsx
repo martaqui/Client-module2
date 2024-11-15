@@ -6,7 +6,6 @@ const EditAttendantsPage = () => {
         <div className="EditAttendantsForm">
             <h1>Editar asistente</h1>
             <EditAttendantsForm />
-
         </div>
     )
 }

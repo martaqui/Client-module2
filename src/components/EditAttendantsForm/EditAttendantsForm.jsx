@@ -31,10 +31,13 @@ const EditAttendantsForm = () => {
     }
 
     const handleAttendantSubmit = (e) => {
+
         e.preventDefault()
+
         const reqPayload = {
             ...attendantData
         }
+
         axios
             .put(`${API_URL}/attendants/${id}`, reqPayload)
             .then(response => {

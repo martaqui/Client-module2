@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState } from "react"
-import { Container } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -11,12 +10,12 @@ import { useParams, useNavigate } from "react-router-dom";
 const API_URL = "http://localhost:5005"
 
 const AttendantsForm = () => {
+
     const navigate = useNavigate()
     const { eventId } = useParams()
-    const numericEventId = Number(eventId)
     const [attendantData, setAttendantData] = useState({
         id: '',
-        eventId: numericEventId,
+        eventId: Number(eventId),
         name: '',
         lastName: '',
         favouriteMusicGenre: [''],
@@ -48,42 +47,30 @@ const AttendantsForm = () => {
     }
 
     const handleEventSubmit = (e) => {
+
         e.preventDefault();
+
         const reqPayload = {
             ...attendantData,
-            eventId: numericEventId,
+            eventId: Number(eventId),
             avatar: "https://static-00.iconduck.com/assets.00/profile-default-icon-1024x1023-4u5mrj2v.png"
-
         }
+
         axios
             .post(`${API_URL}/attendants`, reqPayload)
             .then(response => {
-                console.log(response.data);
                 navigate(`/eventos/detalles/${response.data.eventId}`)
-
             })
-
-            .catch(err => { console.log(err) })
-
-
-
+            .catch(err => console.log(err))
     }
 
 
     return (
         <div className="AttendantsForm">
-            <Container />
 
-            <Row>
-                <Col><h1>Confirma tu asistencia al evento aqui!</h1></Col>
-
-                <Row> <Col><h2>Disfruta compartiendo tus gustos!</h2></Col></Row>
-
-            </Row>
-
-            <br />
 
             <Form onSubmit={handleEventSubmit}>
+
                 <Row className="mb-2">
 
                     <Form.Group as={Col} controlId="formGridName">
@@ -128,6 +115,7 @@ const AttendantsForm = () => {
                         <Form.Control type="number" value={attendantData.phone} onChange={handleAttendantChange} name="phone" ></Form.Control>
                     </Form.Group>
                 </Row>
+
                 <Row className="mb-3">
                     <Form.Group as={Col} xs={6} controlId="formGridState">
                         <Form.Label>Género</Form.Label>
@@ -146,12 +134,11 @@ const AttendantsForm = () => {
                     <Form.Group as={Col} xs={6} id="formGridCheckbox" className="d-flex align-items-center mt-3">
                         <Form.Check type="checkbox" label="Check me out if you are premium" />
                     </Form.Group>
-
                 </Row>
-                <Col> <Button variant="primary" className="btn btn-outline-light AttendantsButton" type="submit">
+
+                <Button variant="primary" className="btn btn-outline-light AttendantsButton" type="submit">
                     Registrarte
                 </Button>
-                </Col>
             </Form>
 
         </div>

@@ -10,10 +10,10 @@ const AttendantsList = () => {
     const { eventId } = useParams();
 
     useEffect(() => {
-        fetchAttendantsList();
+        fetchAttendants();
     }, []);
 
-    const fetchAttendantsList = () => {
+    const fetchAttendants = () => {
         axios
             .get(`${API_URL}/attendants?eventId=${eventId}`)
             .then(response => setAttendants(response.data))
@@ -24,7 +24,7 @@ const AttendantsList = () => {
         axios
             .delete(`${API_URL}/attendants/${attendantId}`)
             .then(() => {
-                setAttendants(prev => prev.filter(attendant => attendant.id !== attendantId));
+                fetchAttendants()
             })
             .catch(err => console.error(err));
     };
@@ -32,14 +32,13 @@ const AttendantsList = () => {
     return (
         <div className="AttendantsList">
             <Row>
-                {attendants.map(elm => (
-                    <Col key={elm.id}>
-                        <AttendantsCard
-                            {...elm}
-                            onDelete={() => handleDeleteAttendant(elm.id)}
-                        />
-                    </Col>
-                ))}
+                {
+                    attendants.map(elm => (
+                        <Col key={elm.id}>
+                            <AttendantsCard {...elm} onDelete={() => handleDeleteAttendant(elm.id)} />
+                        </Col>
+                    ))
+                }
             </Row>
         </div>
     );

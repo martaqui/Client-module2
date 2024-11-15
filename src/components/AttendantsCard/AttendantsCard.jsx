@@ -17,9 +17,10 @@ const AttendantsCard = ({ id, name, lastName, favouriteMusicGenre, genre, premiu
                         <Button variant="danger" style={{ marginLeft: '10px' }}>
                             <FaTrashAlt />
                         </Button>
-                        <Link to={`/edit/attendant/${id}/form`} o><Button variant="danger" style={{ marginLeft: '10px' }}>
-                            <RxMagicWand />
-                        </Button>
+                        <Link to={`/edit/attendant/${id}/form`}>
+                            <Button variant="danger" style={{ marginLeft: '10px' }}>
+                                <RxMagicWand />
+                            </Button>
                         </Link>
                     </Card.Body>
                 </Card>

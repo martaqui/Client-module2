@@ -13,7 +13,7 @@
 
 .EventsPage h1:hover,
 a:hover,
-.listado:hover {
+.EventsList:hover {
 
     text-shadow: 1px 1px 10px rgb(255, 94, 151);
     transition: 1s;

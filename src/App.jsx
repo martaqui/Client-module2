@@ -8,7 +8,6 @@ function App() {
   return (
     <div className="classname main">
       <Navbar />
-
       <AppRoutes />
       <Footer />
     </div>

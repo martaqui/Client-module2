@@ -8,6 +8,7 @@ const Navigation = () => {
     return (
         <div className="Navigation">
             <Container>
+                {/* TODO */}
                 <nav className="navbar navbar-expand-lg navbar-light bg-transparent">
 
                     <div className="container-fluid justify-content-between">
