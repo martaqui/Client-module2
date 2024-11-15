@@ -3,6 +3,7 @@ import iconImg from "./../../assets/img/iconPag2.png"
 import { Link } from "react-router-dom"
 import { Form, Container, Row, Col } from "react-bootstrap"
 import { RxPerson } from "react-icons/rx";
+import EvenstsGlobalFilter from "../EventsGlobalFilter/EventsGlobalFilter";
 
 const Navigation = () => {
     return (
@@ -15,12 +16,9 @@ const Navigation = () => {
                         <Link to={"/"}>
                             <img src={iconImg} alt="iconImage" className="navbar-icon" />
                         </Link>
-                        <Form.Control
-                            type="search"
-                            placeholder="Search"
-                            className="navbar-search me-2"
-                            aria-label="Search"
-                        />
+
+                        <EvenstsGlobalFilter />
+
                         <Row>
                             <Col xs="5">
                                 <Link to={"/"}><li>Home</li></Link>
