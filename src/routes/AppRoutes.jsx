@@ -21,6 +21,7 @@ const AppRoutes = () => {
             <Route path="/editar/:eventId/evento" element={<EditEventFormPage />} />
             <Route path="/editar/asistente/:id" element={<EditAttendantsPage />} />
             <Route path="/evento/:id/editar" element={<EditEventFormPage />} />
+
             <Route path="*" element={<NotFoundPage />} />
         </Routes>
     )

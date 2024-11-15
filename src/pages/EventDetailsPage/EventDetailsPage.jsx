@@ -5,6 +5,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import './EventDetailsPage.css';
 import AttendantsList from "../../components/AttendantsList/AttendantsList";
 import Modal from 'react-bootstrap/Modal';
+import CommentsList from "../../components/CommentsList/CommentsList";
 const API_URL = "http://localhost:5005";
 
 const EventDetailsPage = () => {
@@ -103,6 +104,9 @@ const EventDetailsPage = () => {
 
                             <h1>Participantes</h1>
                             <AttendantsList />
+                            <hr />
+                            <CommentsList />
+
 
 
                             <Modal show={showModal} onHide={() => setshowModal(false)} >
