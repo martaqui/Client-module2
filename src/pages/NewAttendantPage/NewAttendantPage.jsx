@@ -1,5 +1,5 @@
 import AttendantsForm from "../../components/AttendantsForm/AttendantsForm"
-
+import { Col, Row, Container } from "react-bootstrap"
 const NewAttendantPage = () => {
     return (
         <div className="NewAttendantPage">
