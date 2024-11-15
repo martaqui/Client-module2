@@ -14,12 +14,7 @@ const Navigation = () => {
                         <Link to={"/"}>
                             <img src={iconImg} alt="iconImage" className="navbar-icon" />
                         </Link>
-                        <Form.Control
-                            type="search"
-                            placeholder="Search"
-                            className="navbar-search me-2"
-                            aria-label="Search"
-                        />
+
                         <Row>
                             <Col xs="5">
                                 <Link to={"/"}><li>Home</li></Link>
