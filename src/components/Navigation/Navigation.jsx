@@ -1,36 +1,45 @@
-import "./Navigation.css"
-import { Link } from "react-router-dom"
-import { Navbar, NavDropdown, Nav, Container } from "react-bootstrap"
+import "./Navigation.css";
+import { Link } from "react-router-dom";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import EventsGlobalFilter from "../EventsGlobalFilter/EventsGlobalFilter";
 import { ICONIMG } from "../../consts/image-paths";
-import { LiaBinocularsSolid } from "react-icons/lia";
-import { LiaDrupal } from "react-icons/lia";
-import { LiaCampgroundSolid } from "react-icons/lia";
-
+import { LiaDrupal, LiaCampgroundSolid, LiaBinocularsSolid } from "react-icons/lia";
+import { motion } from "framer-motion";
 
 
 const Navigation = () => {
     return (
-        <div className="Navigation" >
-            <Navbar className="bg-body-tertiary" >
-                <Container >
-                    <Navbar.Brand href="#home">
-                        <img src={ICONIMG} alt="icon" />
-                    </Navbar.Brand>
+        <div className="Navigation">
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2 }}
+            >
+                <Navbar className="bg-body-tertiary" expand="lg">
 
-                    <EventsGlobalFilter />
+                    <Container>
 
-                    <Navbar.Collapse className="justify-content-end">
+                        <Navbar.Brand as={Link} to={`/`}>
+                            <img src={ICONIMG} alt="icon" />
+                        </Navbar.Brand>
 
-                        <Nav.Link href="#home">Home  <LiaCampgroundSolid /></Nav.Link>
-                        <Nav.Link href="#features">Events  <LiaBinocularsSolid /></Nav.Link>
-                        <Nav.Link href="#pricing">Profile  <LiaDrupal /></Nav.Link>
+                        <EventsGlobalFilter />
 
-                    </Navbar.Collapse>
+                        <Navbar.Toggle aria-controls="navbar-nav" />
 
-                </Container>
-            </Navbar>
-        </div >
-    )
-}
-export default Navigation
+                        <Navbar.Collapse id="navbar-nav" className="justify-content-end">
+                            <Nav.Link as={Link} to={`/`}>Home  <LiaCampgroundSolid /></Nav.Link>
+                            <Nav.Link as={Link} to={`/eventos`}>Events  <LiaBinocularsSolid /></Nav.Link>
+                            <Nav.Link as={Link} to={`/perfil`}>Profile  <LiaDrupal /></Nav.Link>
+                        </Navbar.Collapse>
+
+
+                    </Container>
+
+                </Navbar>
+            </motion.div>
+        </div>
+    );
+};
+
+export default Navigation;

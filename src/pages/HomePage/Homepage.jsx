@@ -1,143 +1,145 @@
-import './HomePage.css'
-import img from './../../assets/img/FirstElm.png'
-import { Carousel, Row, Col } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
-import * as IMAGE_PATH from '../../consts/image-paths'
+import './HomePage.css';
+import img from './../../assets/img/FirstElm.png';
+import { Carousel, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import * as IMAGE_PATH from '../../consts/image-paths';
+import { motion } from 'framer-motion';
 
 
 const HomePage = () => {
+    const fadeInUp = {
+        hidden: { opacity: 0, y: 100 },
+        visible: { opacity: 1, y: 0 },
+    };
 
+    const hoverEffect = {
+        scale: 1.05,
+        boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)",
+        transition: { duration: 0.3 },
+    };
+
+    const carouselEffect = {
+        hidden: { opacity: 0.8, scale: 0.95 },
+        visible: { opacity: 1, scale: 1 },
+        transition: { duration: 1 },
+    };
 
     return (
         <div className="HomePage">
+            <motion.div
+                variants={carouselEffect}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.3 }}
+            >
+                <Carousel>
+                    <Carousel.Item>
+                        <motion.img
+                            className="d-block w-100"
+                            src={IMAGE_PATH.CAROUSEL1}
+                            alt="FirstImg"
+                            whileHover={{ scale: 1.02 }}
+                        />
+                        <Carousel.Caption className="d-flex justify-content-center align-items-center h-100">
+                            <div className="carousel-overlay">
+                                <motion.h3 whileHover={{ scale: 1.1 }}>Experiencias Únicas</motion.h3>
+                                <Link to="/eventos" className="btn btn-outline-light">Explorar</Link>
+                            </div>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <motion.img
+                            className="d-block w-100"
+                            src={IMAGE_PATH.CAROUSEL2}
+                            alt="SecondImg"
+                            whileHover={{ scale: 1.02 }}
+                        />
+                        <Carousel.Caption className="d-flex justify-content-center align-items-center h-100">
+                            <div className="carousel-overlay">
+                                <motion.h3 whileHover={{ scale: 1.1 }}>Encuentra tu Alma Gemela</motion.h3>
+                                <Link to="/eventos" className="btn btn-outline-light">Descubre Más</Link>
+                            </div>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <motion.img
+                            className="d-block w-100"
+                            src={IMAGE_PATH.CAROUSEL3}
+                            alt="ThirdIMG"
+                            whileHover={{ scale: 1.02 }}
+                        />
+                        <Carousel.Caption className="d-flex justify-content-center align-items-center h-100">
+                            <div className="carousel-overlay">
+                                <motion.h3 whileHover={{ scale: 1.1 }}>Disfruta con los Mejores</motion.h3>
+                                <Link to="/eventos" className="btn btn-outline-light">Únete</Link>
+                            </div>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                </Carousel>
+            </motion.div>
 
-            <Carousel>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src={IMAGE_PATH.CAROUSEL1}
-                        alt="FirstImg"
-                    />
-                    <Carousel.Caption className="d-flex justify-content-center align-items-center h-100">
-                        <div className="carousel-overlay">
-                            <h3>Experiencias Únicas</h3>
-                            <Link to="/eventos" className="btn btn-outline-light" >Explorar</Link>
-                        </div>
-                    </Carousel.Caption>
-                </Carousel.Item>
-
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src={IMAGE_PATH.CAROUSEL2}
-                        alt="SecondImg"
-                    />
-                    <Carousel.Caption className="d-flex justify-content-center align-items-center h-100">
-                        <div className="carousel-overlay">
-                            <h3>Encuentra tu Alma Gemela</h3>
-                            <Link to="/eventos" className="btn btn-outline-light">Descubre Más</Link>
-                        </div>
-                    </Carousel.Caption>
-                </Carousel.Item>
-
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src={IMAGE_PATH.CAROUSEL3}
-                        alt="ThirdIMG"
-                    />
-                    <Carousel.Caption className="d-flex justify-content-center align-items-center h-100">
-                        <div className="carousel-overlay">
-                            <h3>Disfruta con los Mejores</h3>
-                            <Link to="/eventos" className="btn btn-outline-light" >Únete</Link>
-                        </div>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            </Carousel>
+            <motion.div
+                className="content"
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 1 }}
+            >
+                <motion.h1 whileHover={{ scale: 1.05 }}>Las mejores fiestas de techno</motion.h1>
+                <div className="img-container">
+                    <Link to="/eventos">
+                        <motion.img
+                            src={img}
+                            alt="elements"
+                            style={{ width: '500px' }}
+                            whileHover={hoverEffect}
+                        />
+                    </Link>
+                </div>
+            </motion.div>
 
 
-            <h1>Las mejores fiestas de techno</h1>
-            <br />
-            <div className="img-container">
 
-                <Link to="/eventos">
-                    <img
-                        src={img}
-                        alt="elemets"
-                        style={{
-                            width: '500px'
-                        }}
-                    />
-                </Link>
-            </div>
-            <br />
-
-            <br />
-            <section style={{ backgroundColor: 'black' }}>
-                <h2 style={{ color: 'white', fontSize: 45 }}>encuentra tus eventos favoritos</h2>
+            <motion.section
+                style={{ backgroundColor: 'black' }}
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 1 }}
+            >
+                <h2 style={{ color: 'white', fontSize: 45 }}>Encuentra tus eventos favoritos</h2>
                 <article>
-
-                    <Row className="mb-4 Imgsbott">
-                        <Col>
-                            <div className="card">
-                                <img src={IMAGE_PATH.CARDIMG1}
-                                    alt="Fiesta 1" className="img-custom rounded-top" />
-                                <div className="card-body">
-                                    <h4>Fiesta techno en la Playa</h4>
-                                    <p>¡Ven y disfruta de la mejor música electrónica junto al mar!</p>
-
-                                </div>
-                            </div>
-                        </Col>
-                        <Col>
-                            <div className="card">
-                                <img src={IMAGE_PATH.CARDIMG2} alt="Fiesta 2" className="img-custom rounded-top" />
-                                <div className="card-body">
-                                    <h4>Concierto de Rock</h4>
-                                    <p>Vibra con los mejores conciertos de rock en vivo.</p>
-
-                                </div>
-                            </div>
-                        </Col>
-                    </Row>
-                    <Row className="mb-4 Imgsbott">
-                        <Col>
-                            <div className="card">
-                                <img src={IMAGE_PATH.CARDIMG3} />
-                                <div className="card-body">
-                                    <h4>Festival de Techno</h4>
-                                    <p>Los mejores DJs del mundo reunidos en una noche épica.</p>
-
-                                </div>
-                            </div>
-                        </Col>
-                        <Col>
-                            <div className="card">
-                                <img src={IMAGE_PATH.CARDIMG4} alt="Fiesta 4" className="img-custom rounded-top" />
-                                <div className="card-body">
-                                    <h4>Fiesta VIP Exclusiva</h4>
-
-
-                                </div>
-                            </div>
-                        </Col>
-                        <Col>
-                            <div className="card">
-                                <img src={IMAGE_PATH.CARDIMG5} alt="Fiesta 5" className="img-custom rounded-top" />
-                                <div className="card-body">
-                                    <h4>After Party en la Ciudad</h4>
-                                    <p>La fiesta nunca para, ven al after party más cool.</p>
-
-                                </div>
-                            </div>
-                        </Col>
+                    <Row className="mb-4 g-4">
+                        {[
+                            { img: IMAGE_PATH.CARDIMG1, title: "Fiesta techno en la Playa", desc: "¡Ven y disfruta de la mejor música electrónica junto al mar!" },
+                            { img: IMAGE_PATH.CARDIMG2, title: "Concierto de Rock", desc: "Vibra con los mejores conciertos de rock en vivo." },
+                            { img: IMAGE_PATH.CARDIMG3, title: "Festival de Techno", desc: "Los mejores DJs del mundo reunidos en una noche épica." },
+                        ].map((card, i) => (
+                            <Col key={i}>
+                                <motion.div
+                                    className="card custom-card"
+                                    variants={fadeInUp}
+                                    whileHover={hoverEffect}
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: false, amount: 0.2 }}
+                                    transition={{ duration: 1 }}
+                                >
+                                    <img src={card.img} alt={card.title} className="img-custom rounded-top" />
+                                    <div className="card-body">
+                                        <h4>{card.title}</h4>
+                                        <p>{card.desc}</p>
+                                    </div>
+                                </motion.div>
+                            </Col>
+                        ))}
                     </Row>
                 </article>
-            </section>
-
-
+            </motion.section>
         </div>
-    )
-}
+    );
+};
 
-export default HomePage
+export default HomePage;
