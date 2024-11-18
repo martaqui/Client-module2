@@ -1,4 +1,7 @@
-h1,
-h2 {
+.CreateEventPage h1,
+.CreateEventPage h2 {
     padding: 20px;
+    margin: 25px;
+    color: white;
+    text-shadow: 1px 2px 3px #666
 }
