@@ -7,3 +7,5 @@ export const CARDIMG2 = "https://i.pinimg.com/736x/b3/63/18/b36318b550f892c6612f
 export const CARDIMG3 = "https://media.istockphoto.com/id/92093747/photo/fans.jpg?s=612x612&w=0&k=20&c=71zIa7qnQYpcQ-PXp1c-LzXsCUiuS9udtCd5M3y6UBM="
 export const CARDIMG4 = "https://media.istockphoto.com/id/498731269/photo/black-and-white-dj-and-crowd-in-nightclub.jpg?s=612x612&w=0&k=20&c=XE3Bo5LRCBLQhUmDy-A_wOAPJIL2_Gpj0ZFN04aO5Ro="
 export const CARDIMG5 = "https://cdn.pixabay.com/photo/2019/10/22/16/02/black-and-white-4569096_1280.jpg"
+
+export const ICONIMG = "https://res.cloudinary.com/dbbjnx46f/image/upload/v1731922910/iconPag2_wlblk0.png"
