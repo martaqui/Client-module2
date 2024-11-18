@@ -126,10 +126,10 @@ const EventDetailsPage = () => {
                             </div>
                         </motion.div>
                         <Row>
-                            <Button variant="danger" onClick={toggleModal}>Eliminar evento</Button>
+                            <Button variant="danger" className="btn btn-outline-light" onClick={toggleModal}>Eliminar evento</Button>
                             <Link
                                 to={`/evento/${event.id}/editar`}
-                                className="btn btn-primary"
+                                className="btn btn-outline-light"
                                 style={{ marginLeft: '10px' }}
                             >
                                 Editar evento
@@ -170,8 +170,8 @@ const EventDetailsPage = () => {
                     </Modal.Header>
                     <Modal.Body>¿Está seguro de que desea eliminar este evento?</Modal.Body>
                     <Modal.Footer>
-                        <Button variant="secondary" onClick={deleteEvent}>Sí</Button>
-                        <Button variant="primary" onClick={toggleModal}>No</Button>
+                        <Button className="btn btn-outline-light" onClick={deleteEvent}>Sí</Button>
+                        <Button className="btn btn-outline-light" onClick={toggleModal}>No</Button>
                     </Modal.Footer>
                 </Modal>
             </Container>

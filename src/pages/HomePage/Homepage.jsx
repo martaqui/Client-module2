@@ -14,7 +14,6 @@ const HomePage = () => {
 
     const hoverEffect = {
         scale: 1.05,
-        boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)",
         transition: { duration: 0.3 },
     };
 
