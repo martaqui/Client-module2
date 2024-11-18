@@ -3,8 +3,8 @@ img {
 }
 
 .EventDetailsPage * {
-
     color: white;
+    text-shadow: 1px 2px 3px #666;
 }
 
 .EventDetailsPage .ContainerDetails {
@@ -21,10 +21,19 @@ img {
     position: relative;
 }
 
-.image-container img {
+.image-container .Hearts {
     position: absolute;
-    right: 10;
-    top: 10;
-    width: 15;
-    height: 15
+    right: 10px;
+    top: 10px;
+    width: 75px;
+    transition: 1s;
+
+}
+
+.image-container .Hearts:hover {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 100px;
+
 }

@@ -1,150 +1,179 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Button, Spinner } from "react-bootstrap";
+import Modal from "react-bootstrap/Modal";
+import { motion } from "framer-motion";
 import './EventDetailsPage.css';
 import AttendantsList from "../../components/AttendantsList/AttendantsList";
-import Modal from 'react-bootstrap/Modal';
 import CommentsList from "../../components/CommentsList/CommentsList";
 import { EMPTYHEART, FULLHEART } from "../../consts/image-paths";
+
 const API_URL = "http://localhost:5005";
 
-const EventDetailsPage = ({ }) => {
-
+const EventDetailsPage = () => {
     const { eventId } = useParams();
-    const [event, setEvent] = useState();
+    const [event, setEvent] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [showModal, setShowModal] = useState(false);
+    const [liked, setLiked] = useState(false);
     const navigate = useNavigate();
-    const [showModal, setshowModal] = useState(false)
-    const [liked, setLiked] = useState(false)
 
-
-    const handleLike = (newLiked) => {
-        const updatedEvent = {
-            ...event,
-            liked: !event.liked
-        }
-        axios
-            .put(`${API_URL}/events/${eventId}`, updatedEvent)
-            .then(response => {
-                fetchEventDetails()
-            })
-            .catch(err => console.error('Error al actualizar evento:', err));
-    }
-
-    useEffect(() => {
-        fetchEventDetails();
-    }, []);
+    useEffect(() => fetchEventDetails(), []);
 
     const fetchEventDetails = () => {
         axios
             .get(`${API_URL}/events/${eventId}`)
             .then(response => {
                 setEvent(response.data);
+                setLiked(response.data.liked);
                 setIsLoading(false);
-                setLiked(response.data.liked)
             })
-            .catch(err => console.error(err));
+            .catch(err => console.error("Error al obtener detalles del evento:", err));
+    };
+
+    const handleLike = () => {
+        const updatedEvent = { ...event, liked: !liked };
+        axios
+            .put(`${API_URL}/events/${eventId}`, updatedEvent)
+            .then(() => setLiked(!liked))
+            .catch(err => console.error("Error al actualizar evento:", err));
     };
 
     const deleteEvent = () => {
         axios
             .delete(`${API_URL}/events/${eventId}`)
-            .then(() => {
-                navigate("/eventos");
-            })
-            .catch(err => console.error(err));
+            .then(() => navigate("/eventos"))
+            .catch(err => console.error("Error al eliminar evento:", err));
     };
 
-    const handleCancelButton = () => {
-        setshowModal(false)
+    const toggleModal = () => setShowModal(!showModal);
+
+    if (isLoading) {
+        return (
+            <div className="text-center">
+                <Spinner animation="border" role="status">
+                    <span className="visually-hidden">Cargando...</span>
+                </Spinner>
+            </div>
+        );
     }
 
     return (
         <div className="EventDetailsPage">
-            <Container className="ContainerDetails">
-                {
-                    isLoading ? (
-                        <h1>CARGANDO</h1>
-                    ) : (
-                        <>
-                            <Row>
-                                <Col>
-                                    <div>
-                                        <h1>{event.title}</h1>
-                                        <h3>{event.genres}</h3>
-                                        <p>{event.description}</p>
-                                        <ul>
-                                            <li>
-                                                <span>Dirección:</span> {event.location.street}
-                                            </li>
-                                            <li>
-                                                <span>Ciudad:</span> {event.location.city}
-                                            </li>
-                                            <li>
-                                                <span>Código Postal:</span> {event.location.zipcode}
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <br />
-                                    <Row>
-                                        <Col>
-                                            <h3>Entrada normal </h3>
-                                            <h5>{event.price.regular}$</h5>
-                                        </Col>
+            <Container>
+                <Row>
+                    <Col>
+                        <motion.div
+                            initial={{ x: -50, opacity: 0 }}
+                            whileInView={{ x: 0, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1 }}
+                        >
+                            <h1>{event.title}</h1>
+                            <h3>{event.genres}</h3>
+                            <p>{event.description}</p>
+                            <ul>
+                                <li><span>Dirección:</span> {event.location.street}</li>
+                                <li><span>Ciudad:</span> {event.location.city}</li>
+                                <li><span>Código Postal:</span> {event.location.zipcode}</li>
+                            </ul>
+                        </motion.div>
+                        <Row>
+                            <Col>
+                                <motion.div
+                                    initial={{ opacity: 0 }}
+                                    whileInView={{ opacity: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.8 }}
+                                >
+                                    <h3>Entrada normal</h3>
+                                    <h5>{event.price.regular}$</h5>
+                                </motion.div>
+                            </Col>
+                            <Col>
+                                <motion.div
+                                    initial={{ opacity: 0 }}
+                                    whileInView={{ opacity: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.8 }}
+                                >
+                                    <h3>Entrada anticipada</h3>
+                                    <h5>{event.price.early}$</h5>
+                                </motion.div>
+                            </Col>
+                        </Row>
+                    </Col>
+                    <Col>
+                        <motion.div
+                            initial={{ x: 200, opacity: 0 }}
+                            whileInView={{ x: 0, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1 }}
+                        >
+                            <div className="image-container">
+                                {event.cover ? (
+                                    <img src={event.cover} alt={event.title} />
+                                ) : (
+                                    <div className="placeholder">Imagen no disponible</div>
+                                )}
+                                <img
+                                    className="Hearts"
+                                    onClick={handleLike}
+                                    src={liked ? FULLHEART : EMPTYHEART}
+                                    alt="heart"
+                                />
+                            </div>
+                        </motion.div>
+                        <Row>
+                            <Button variant="danger" onClick={toggleModal}>Eliminar evento</Button>
+                            <Link
+                                to={`/evento/${event.id}/editar`}
+                                className="btn btn-primary"
+                                style={{ marginLeft: '10px' }}
+                            >
+                                Editar evento
+                            </Link>
+                        </Row>
+                    </Col>
+                </Row>
+                <hr />
+                <br />
 
-                                        <Col>
-                                            <h3>Entrada anticipada</h3>
-                                            <h5>{event.price.early}$</h5>
-                                        </Col>
-                                    </Row>
-                                </Col>
-                                <Col>
-                                    <div className="image-container" >
-                                        <img src={event.cover} alt={event.title} />
-                                        <img onClick={handleLike} src={liked ? FULLHEART : EMPTYHEART} alt="" />
-                                    </div>
-                                    <Row>
-                                        <Button variant="primary" className="btn btn-outline-light" onClick={() => setshowModal(true)} type="submit">
-                                            Eliminar evento
-                                        </Button>
-                                        <Button as={Link} to={`/evento/${event.id}/editar`} variant="primary" className="btn btn-outline-light" type="submit">
-                                            Editar evento
-                                        </Button>
+                <motion.div
+                    key="attendants"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                    transition={{ duration: 1 }}
+                >
+                    <h1>Participantes</h1>
+                    <AttendantsList />
+                </motion.div>
 
-                                    </Row>
-                                </Col>
-                            </Row>
+                <hr />
 
-                            <Button variant="dark">
-                                <Link to={`/evento/${event.id}/registro`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    QUIERO ASISTIR A ESTE EVENTO
-                                </Link>
-                            </Button>
+                <motion.div
+                    key="comments"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                    transition={{ duration: 1.2 }}
+                >
+                    <h1>Comentarios</h1>
+                    <CommentsList />
+                </motion.div>
 
-                            <h1>Participantes</h1>
-                            <AttendantsList />
-                            <hr />
-                            <CommentsList />
-
-
-
-                            <Modal show={showModal} onHide={() => setshowModal(false)} >
-                                <Modal.Header closeButton>
-                                    <Modal.Title>¡Cuidado!</Modal.Title>
-                                </Modal.Header>
-                                <Modal.Body>¿Esta seguro de que desea eliminar el evento?</Modal.Body>
-                                <Modal.Footer>
-                                    <Button variant="secondary" onClick={deleteEvent} >
-                                        Si
-                                    </Button>
-                                    <Button variant="primary" onClick={handleCancelButton} >
-                                        No
-                                    </Button>
-                                </Modal.Footer>
-                            </Modal>
-                        </>
-                    )}
+                <Modal show={showModal} onHide={toggleModal}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>¡Cuidado!</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>¿Está seguro de que desea eliminar este evento?</Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={deleteEvent}>Sí</Button>
+                        <Button variant="primary" onClick={toggleModal}>No</Button>
+                    </Modal.Footer>
+                </Modal>
             </Container>
         </div>
     );
