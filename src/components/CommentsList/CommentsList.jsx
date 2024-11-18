@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Row, Form, Button } from "react-bootstrap";
+import { Row, Form, Button, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import "./commentList.css"
 
 const API_URL = "http://localhost:5005";
 
@@ -33,7 +34,6 @@ const CommentsList = () => {
             message: message,
         };
 
-
         axios
             .post(`${API_URL}/comments`, newComment)
             .then((response) => {
@@ -46,50 +46,55 @@ const CommentsList = () => {
 
     return (
         <div className="Comments">
+            <div className="comment-form">
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group className="mb-3" controlId="formName">
+                        <Form.Label>Nombre</Form.Label>
+                        <Form.Control
+                            type="text"
+                            placeholder="Tu nombre"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            required
+                        />
+                    </Form.Group>
 
-            <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3" controlId="formName">
-                    <Form.Label>Nombre</Form.Label>
-                    <Form.Control
-                        type="text"
-                        placeholder="Tu nombre"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        required
-                    />
-                </Form.Group>
+                    <Form.Group className="mb-3" controlId="formMessage">
+                        <Form.Label>Comentario</Form.Label>
+                        <Form.Control
+                            as="textarea"
+                            rows={3}
+                            placeholder="Escribe tu comentario"
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
+                            required
+                        />
+                    </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formMessage">
-                    <Form.Label>Comentario</Form.Label>
-                    <Form.Control
-                        as="textarea"
-                        rows={3}
-                        placeholder="Escribe tu comentario"
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                        required
-                    />
-                </Form.Group>
+                    <Button className="btn btn-outline-light" variant="primary" type="submit">
+                        Enviar Comentario
+                    </Button>
+                </Form>
+            </div>
 
-                <Button variant="primary" type="submit">
-                    Enviar Comentario
-                </Button>
-            </Form>
-
-
-            <h2>Comentarios para el evento {eventId}</h2>
-            <Row>
-                <ul>
-                    {comments.map((comment) => (
-                        <li key={comment.id}>
-                            <strong>{comment.name}</strong>: {comment.message} <br />
-                        </li>
-                    ))}
-                </ul>
+            <h2>Comentarios</h2>
+            <Row className="comment-list">
+                {comments.map((comment) => (
+                    <Col key={comment.id} xs={12} md={6} lg={4} className="mb-4">
+                        <div className="comment-card">
+                            <div className="avatar">
+                                <img src="https://static-00.iconduck.com/assets.00/profile-default-icon-1024x1023-4u5mrj2v.png" alt="avatar" />
+                            </div>
+                            <div className="comment-content">
+                                <strong>{comment.name}</strong>
+                                <p>{comment.message}</p>
+                            </div>
+                        </div>
+                    </Col>
+                ))}
             </Row>
         </div>
     );
 };
 
 export default CommentsList;
-
