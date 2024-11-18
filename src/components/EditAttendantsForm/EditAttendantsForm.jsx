@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 import { Button, Col, Row } from 'react-bootstrap';
 
-
 const API_URL = "http://localhost:5005";
 
 const EditAttendantsForm = () => {
@@ -23,7 +22,9 @@ const EditAttendantsForm = () => {
     const fetchAttendantData = () => {
         axios
             .get(`${API_URL}/attendants/${id}`)
+
             .then(response => {
+                console.log("Datos recibidos:", response.data);
                 setAttendantData(response.data)
                 setIsLoading(false)
             })
@@ -47,15 +48,12 @@ const EditAttendantsForm = () => {
             .catch(err => { console.log(err) })
 
     }
-    const addNewGenre = () => {
-        const genresCopy = [...attendantData.favouriteMusicGenre]
-        genresCopy.push('')
-        setAttendantData({ ...attendantData, favouriteMusicGenre: genresCopy })
-    }
+
     const handleAttendantChange = e => {
         const { name, value } = e.target;
         setAttendantData({ ...attendantData, [name]: value });
     }
+
     return (
         <div className="EditAttendantsForm">
             {
@@ -74,20 +72,8 @@ const EditAttendantsForm = () => {
                                     <Form.Control type="text" value={attendantData.lastName} name="lastName" onChange={handleAttendantChange} ></Form.Control>
                                 </Form.Group>
 
-                                <Form.Group as={Col} controlId="formGridGenreField">
-                                    <Form.Label>Género/s musicales favoritos</Form.Label>
-                                    {/* {
-                                attendantData.favouriteMusicGenre.map((eachFavourite, id) => {
-                                    return (
-                                        <Form.Control className="mb-3"
-                                            type="text"
-                                            value={eachFavourite} key={id} >
-                                        </Form.Control>
-                                    )
-                                })
-                            } */}
-                                    <Button size='sm' variant='dark' onClick={addNewGenre}>Añadir nuevo</Button>
-                                </Form.Group>
+
+
                             </Row>
 
                             <Row>
@@ -121,11 +107,39 @@ const EditAttendantsForm = () => {
                                         <option value="Hombre">Hombre</option>
                                     </Form.Select>
                                 </Form.Group>
-
+                            </Row>
+                            <Row>
                                 <Form.Group as={Col} xs={6} id="formGridCheckbox" className="d-flex align-items-center mt-3">
-                                    <Form.Check type="checkbox" label="Check me out if you are premium" />
+                                    <Form.Check type="checkbox" label="hardcore" />
+
+                                </Form.Group>
+                                <Form.Group as={Col} xs={6} id="formGridCheckbox" className="d-flex align-items-center mt-3">
+
+                                    <Form.Check type="checkbox" label="techno house" />
                                 </Form.Group>
 
+                                {
+                                    isLoading ? <h1>CARGANDO...</h1> :
+                                        attendantData && attendantData.favouriteMusicGenre && attendantData.favouriteMusicGenre.length > 0 ? (
+                                            <Row>
+                                                {attendantData.favouriteMusicGenre.map((genre, index) => (
+                                                    <Form.Group as={Col} key={index} xs={6} className="d-flex align-items-center mt-3">
+                                                        <Form.Check
+                                                            type="checkbox"
+                                                            label={genre}
+                                                            checked={true}
+                                                        />
+                                                    </Form.Group>
+                                                ))}
+                                            </Row>
+                                        ) : <p>No genres available</p>
+                                }
+                                <Form.Group as={Col} xs={6} id="formGridCheckbox" className="d-flex align-items-center mt-3">
+                                    <Form.Check type="checkbox" label="techno" />
+                                </Form.Group>
+                                <Form.Group as={Col} xs={6} id="formGridCheckbox" className="d-flex align-items-center mt-3">
+                                    <Form.Check type="checkbox" label="reggueton" />
+                                </Form.Group>
                             </Row>
                             <Col> <Button variant="dark" className="btn btn-outline-light AttendantsButton" type="submit">
                                 Actualizar perfil
