@@ -1,5 +1,5 @@
 import EventForm from "../../components/CreateEventForm/CreateEventForm"
-import './CreateEventPage.css'
+import "./CreateEventsPage.css"
 
 const CreateEventPage = () => {
     return (
