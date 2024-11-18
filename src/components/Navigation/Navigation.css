@@ -16,3 +16,21 @@
     padding: 0px;
     margin: 0px;
 }
+
+.Navigation .navbar {
+    width: 100%;
+}
+
+@media (max-width: 992px) {
+
+    .navbar .EventsGlobalFilter {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .navbar .EventsGlobalFilter input {
+        width: 80%;
+    }
+}

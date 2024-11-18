@@ -70,8 +70,6 @@ const EventForm = () => {
 
     return (
         <div className="EventForm">
-
-
             <Form onSubmit={handleEventSubmit}>
                 <Row className="mb-3">
                     <Form.Group as={Col} xs={8} controlId="formEventName">

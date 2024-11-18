@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const EventCard = ({ cover, title, id }) => {
+const EventCard = ({ cover, title, id, liked }) => {
+
 
     return (
         <div className="EventCard">
@@ -16,6 +17,6 @@ const EventCard = ({ cover, title, id }) => {
             </Card>
         </div>
     );
-};
 
+}
 export default EventCard;
