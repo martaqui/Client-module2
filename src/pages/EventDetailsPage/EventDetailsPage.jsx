@@ -6,16 +6,31 @@ import './EventDetailsPage.css';
 import AttendantsList from "../../components/AttendantsList/AttendantsList";
 import Modal from 'react-bootstrap/Modal';
 import CommentsList from "../../components/CommentsList/CommentsList";
+import { EMPTYHEART, FULLHEART } from "../../consts/image-paths";
 const API_URL = "http://localhost:5005";
 
-const EventDetailsPage = () => {
+const EventDetailsPage = ({ }) => {
 
     const { eventId } = useParams();
     const [event, setEvent] = useState();
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
     const [showModal, setshowModal] = useState(false)
+    const [liked, setLiked] = useState(false)
 
+
+    const handleLike = (newLiked) => {
+        const updatedEvent = {
+            ...event,
+            liked: !event.liked
+        }
+        axios
+            .put(`${API_URL}/events/${eventId}`, updatedEvent)
+            .then(response => {
+                fetchEventDetails()
+            })
+            .catch(err => console.error('Error al actualizar evento:', err));
+    }
 
     useEffect(() => {
         fetchEventDetails();
@@ -27,6 +42,7 @@ const EventDetailsPage = () => {
             .then(response => {
                 setEvent(response.data);
                 setIsLoading(false);
+                setLiked(response.data.liked)
             })
             .catch(err => console.error(err));
     };
@@ -84,7 +100,10 @@ const EventDetailsPage = () => {
                                     </Row>
                                 </Col>
                                 <Col>
-                                    <img src={event.cover} alt={event.title} />
+                                    <div className="image-container" >
+                                        <img src={event.cover} alt={event.title} />
+                                        <img onClick={handleLike} src={liked ? FULLHEART : EMPTYHEART} alt="" />
+                                    </div>
                                     <Row>
                                         <Button variant="primary" className="btn btn-outline-light" onClick={() => setshowModal(true)} type="submit">
                                             Eliminar evento
@@ -92,6 +111,7 @@ const EventDetailsPage = () => {
                                         <Button as={Link} to={`/evento/${event.id}/editar`} variant="primary" className="btn btn-outline-light" type="submit">
                                             Editar evento
                                         </Button>
+
                                     </Row>
                                 </Col>
                             </Row>

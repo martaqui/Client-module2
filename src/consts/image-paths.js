@@ -9,3 +9,6 @@ export const CARDIMG4 = "https://media.istockphoto.com/id/498731269/photo/black-
 export const CARDIMG5 = "https://cdn.pixabay.com/photo/2019/10/22/16/02/black-and-white-4569096_1280.jpg"
 
 export const ICONIMG = "https://res.cloudinary.com/dbbjnx46f/image/upload/v1731922910/iconPag2_wlblk0.png"
+
+export const FULLHEART = "https://raw.githubusercontent.com/bootcamp-webmad-1024/week4_day2/b6fd78748606a2c26dc50f27f964fa101fe3c509/react-state/src/assets/heart-on.svg"
+export const EMPTYHEART = "https://raw.githubusercontent.com/bootcamp-webmad-1024/week4_day2/b6fd78748606a2c26dc50f27f964fa101fe3c509/react-state/src/assets/heart-off.svg"
