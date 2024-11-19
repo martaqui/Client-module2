@@ -5,12 +5,12 @@ import './CreateEventsPage.css'
 const CreateEventPage = () => {
     return (
         <div className="CreateEventPage">
-            <Container>
-                <h1>Sientete libre de crear tu evento</h1>
-                <h2>Disfruta compartiendo tus gustos!</h2>
 
-                <EventForm />
-            </Container>
+            <h1>Sientete libre de crear tu evento</h1>
+            <h2>Disfruta compartiendo tus gustos!</h2>
+
+            <EventForm />
+
         </div>
 
     )

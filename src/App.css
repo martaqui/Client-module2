@@ -20,3 +20,24 @@ html {
 a {
     color: inherit
 }
+
+hr {
+    border: none;
+    height: 5px;
+
+    background: linear-gradient(25deg, black, red, black);
+
+    animation: brillo 2.5s infinite;
+}
+
+@keyframes brillo {
+
+    0%,
+    100% {
+        filter: brightness(0);
+    }
+
+    50% {
+        filter: brightness(2.5);
+    }
+}

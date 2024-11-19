@@ -126,7 +126,7 @@ const EventDetailsPage = () => {
                             </div>
                         </motion.div>
                         <Row>
-                            <Button variant="danger" className="" onClick={toggleModal}>Eliminar evento</Button>
+                            <Button variant="danger" className="btn btn-outline-light" onClick={toggleModal}>Eliminar evento</Button>
                             <Link
                                 to={`/evento/${event.id}/editar`}
                                 className="btn btn-outline-light"

@@ -1,3 +1,27 @@
-.AttendantCard .cardA {
-    background-color: rgba(240, 248, 255, 0);
+.AttendantsCard .card {
+    background-color: #1c040468;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 15px;
+    margin: 20px;
+    width: 300px;
+    height: 500px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: white
+}
+
+.AttendantsCard .card img {
+    width: 100%;
+    display: flex;
+    filter: sepia();
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.AttendantsCard .card button {
+    margin: 10px;
+    padding: 20px;
+    opacity: 0.5;
+
 }

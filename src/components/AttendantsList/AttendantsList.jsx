@@ -34,7 +34,7 @@ const AttendantsList = () => {
             <Row>
                 {
                     attendants.map(elm => (
-                        <Col key={elm.id}>
+                        <Col xs="3" key={elm.id}>
                             <AttendantsCard {...elm} onDelete={() => handleDeleteAttendant(elm.id)} />
                         </Col>
                     ))

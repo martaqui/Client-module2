@@ -20,17 +20,17 @@ const AttendantsCard = ({ id, name, lastName, favouriteMusicGenre, genre, premiu
     }
     return (
         <div className="AttendantsCard">
-            <Container className='CardA'>
+            <Container>
                 <>
-                    <Card style={{ width: '18rem' }}>
+                    <Card>
                         <Card.Img variant="top" src={avatar} alt={`${name} ${lastName}`} />
                         <Card.Body>
                             <Card.Title>{name} {lastName}</Card.Title>
-                            <Button variant="danger" onClick={() => setshowModal(true)} style={{ marginLeft: '10px' }}>
+                            <Button variant="btn btn-outline-light" onClick={() => setshowModal(true)} style={{ marginLeft: '10px' }}>
                                 <FaTrashAlt />
                             </Button>
                             <Link to={`/editar/asistente/${id}`}>
-                                <Button variant="danger" style={{ marginLeft: '10px' }}>
+                                <Button variant="btn btn-outline-light" style={{ marginLeft: '10px' }}>
                                     <RxMagicWand />
                                 </Button>
                             </Link>
