@@ -232,7 +232,7 @@ const EditEventForm = () => {
                 </Row>
 
                 <Col>
-                    <Button variant="primary" type="submit">
+                    <Button variant="dark" type="submit">
                         Actualizar Evento
                     </Button>
                 </Col>

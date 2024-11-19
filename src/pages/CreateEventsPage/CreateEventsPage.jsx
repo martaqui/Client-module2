@@ -1,8 +1,15 @@
 import { Container } from "react-bootstrap"
 import EventForm from "../../components/CreateEventForm/CreateEventForm"
 import './CreateEventsPage.css'
+import { useContext } from "react"
+import { AuthContext } from "../../contexts/auth.context"
+import { Navigate } from "react-router-dom"
 
 const CreateEventPage = () => {
+    const { loggedAdmin } = useContext(AuthContext)
+    if (!loggedAdmin) {
+        return <Navigate to="/"></Navigate>
+    }
     return (
         <div className="CreateEventPage">
 

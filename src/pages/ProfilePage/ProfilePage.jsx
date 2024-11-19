@@ -2,6 +2,7 @@ import { Container, Row, Col } from "react-bootstrap"
 import AttendantsCard from "../../components/AttendantsCard/AttendantsCard"
 import EventsList from "../../components/EventList/EventList"
 import "./ProfilePage.css"
+import LogInForm from "../../components/LogInForm/LogInForm"
 
 const ProfilePage = () => {
     return (
@@ -22,7 +23,7 @@ const ProfilePage = () => {
                     }}>
 
                         <div className="DescriptionDIV">
-                            <h1>hola</h1>
+                            <LogInForm />
                         </div>
 
                     </Col>
