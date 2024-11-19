@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const LogInForm = () => {
     const navigate = useNavigate();
-    const { setLoggedAdmin } = useContext(AuthContext)
+    const { setloggedUSer } = useContext(AuthContext)
     const [logInData, setLogInData] = useState({
         email: '',
         password: ''
@@ -32,7 +32,7 @@ const LogInForm = () => {
             email: "martaqui@gmail.com",
             password: "popino"
         }
-        setLoggedAdmin(admin)
+        setloggedUSer(admin)
     }
     return (
         <div className="className">
