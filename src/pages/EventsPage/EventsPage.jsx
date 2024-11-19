@@ -4,10 +4,11 @@ import { Link } from "react-router-dom"
 import { none } from "@cloudinary/url-gen/qualifiers/progressive"
 import './EventsPage.css'
 import { useContext } from "react"
-import { AuthContext } from "../../contexts/auth.context"
+import { AuthContext } from "../../contexts/Auth.Context"
 
 const EventsPage = () => {
-    const { loggedAdmin } = useContext(AuthContext)
+    const { loggedUSer } = useContext(AuthContext)
+
 
     return (
 
@@ -20,15 +21,10 @@ const EventsPage = () => {
                     <Col xs="9">
                         <h1>Nuestos eventos</h1>
                     </Col>
-                    <Col>
-                        {
-
-                            loggedAdmin &&
+                    {
+                        !loggedUSer && <Col>
                             <Link style={{ textDecoration: none }} to={"/crear/evento"}><h1>Crea tu Evento</h1></Link>
-
-                        }
-
-                    </Col>
+                        </Col>}
                 </Row>
 
                 <hr />

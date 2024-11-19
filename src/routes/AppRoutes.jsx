@@ -8,11 +8,13 @@ import NewAttendantPage from "../pages/NewAttendantPage/NewAttendantPage"
 import CreateEventPage from "../pages/CreateEventsPage/CreateEventsPage"
 import EditAttendantsPage from "../pages/EditAttendantsPage/EditAttendantsPage"
 import EditEventFormPage from "../pages/EditEventFormPage/EditEventFormPage"
+import LoginPage from "../pages/LoginPage/LoginPage"
 
 const AppRoutes = () => {
     return (
         <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<LoginPage />} />
+            <Route path="/home" element={<HomePage />} />
             <Route path="/eventos" element={<EventsPage />} />
             <Route path="/eventos/detalles/:eventId" element={<EventDetailsPage />} />
             <Route path="/perfil" element={<ProfilePage />} />

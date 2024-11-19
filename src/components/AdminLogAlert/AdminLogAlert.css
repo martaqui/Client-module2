@@ -1,0 +1,20 @@
+.AdminLogAlert {
+    width: 100;
+    position: fixed;
+    margin-top: 0;
+    padding: 25px;
+    z-index: 1;
+}
+
+.AdminLogAlert .mb-2 svg {
+    font-size: 25px;
+    color: #00ffcc;
+    filter: drop-shadow(0 0 10px #00ffcc) drop-shadow(0 0 20px #00ffcc) drop-shadow(0 0 30px #00ffcc);
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+    cursor: grab;
+}
+
+.AdminLogAlert .mb-2 svg:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px #00ffcc) drop-shadow(0 0 30px #00ffcc) drop-shadow(0 0 45px #00ffcc);
+}
