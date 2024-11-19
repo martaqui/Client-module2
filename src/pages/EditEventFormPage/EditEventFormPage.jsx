@@ -4,7 +4,7 @@ const EditEventFormPage = () => {
 
     return (
         <div className="EditEventForm">
-            <h1>Editar Evento</h1>
+            <h1 style={{ margin: '49px', color: 'white' }}>EDITAR EVENTO</h1>
             <EditEventForm />
         </div>
     );

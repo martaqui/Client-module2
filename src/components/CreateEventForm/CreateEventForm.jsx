@@ -159,7 +159,7 @@ const EventForm = () => {
                     </Form.Group>
                 </Row>
                 <Col>
-                    <Button variant="primary" className="btn btn-outline-light" type="submit">
+                    <Button variant="dark" className="btn btn-outline-light" type="submit">
                         Crear Evento
                     </Button>
                 </Col>
