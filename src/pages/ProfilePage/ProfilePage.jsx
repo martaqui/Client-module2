@@ -23,7 +23,7 @@ const ProfilePage = () => {
                     }}>
 
                         <div className="DescriptionDIV">
-                            <LogInForm />
+
                         </div>
 
                     </Col>

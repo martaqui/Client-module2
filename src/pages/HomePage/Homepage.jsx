@@ -1,14 +1,17 @@
 import './HomePage.css';
 import img from './../../assets/img/FirstElm.png';
 import { Carousel, Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import * as IMAGE_PATH from '../../consts/image-paths';
 import { motion } from 'framer-motion';
-import { useContext } from 'react';
+import { AuthContext } from "../../contexts/auth.context"
+import { useContext, useEffect } from 'react';
 
 
 
 const HomePage = () => {
+
+    const { loggedUser } = useContext(AuthContext)
 
     const fadeInUp = {
         hidden: { opacity: 0, y: 100 },
@@ -25,6 +28,17 @@ const HomePage = () => {
         visible: { opacity: 1, scale: 1 },
         transition: { duration: 1 },
     };
+
+
+
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (loggedUser) {
+            navigate('/fish');
+        }
+    }, [loggedUser, navigate]);
+
+
 
     return (
         <div className="HomePage">

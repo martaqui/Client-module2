@@ -1,6 +1,9 @@
-import { Container, Col, Row } from "react-bootstrap"
+import { Container, Col, Row, Button } from "react-bootstrap"
 import EventsList from "../../components/EventList/EventList"
 import { motion } from "framer-motion"
+import LogInForm from "../../components/LogInForm/LogInForm"
+
+import "./Loginpage.css"
 
 const LoginPage = () => {
     return (
@@ -23,12 +26,21 @@ const LoginPage = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
                         >
-                            <h1>hola</h1>
+                            <div className="LoginForm">
+                                <h1>Inicio de sesion</h1>
+                                <p>inicia sesion para poder ver los mejore eventos del momento</p>
+                                <br />
+                                <LogInForm />
+                            </div>
+
+
                         </motion.div>
+
                     </Col>
 
 
                 </Row>
+
             </Container>        </div >
     )
 }

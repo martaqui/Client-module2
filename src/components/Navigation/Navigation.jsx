@@ -6,7 +6,7 @@ import { ICONIMG } from "../../consts/image-paths";
 import { LiaDrupal, LiaCampgroundSolid, LiaBinocularsSolid, } from "react-icons/lia";
 import { motion } from "framer-motion";
 import { useContext } from "react";
-import { AuthContext } from "../../contexts/Auth.Context";
+import { AuthContext } from "../../contexts/auth.context";
 
 
 const Navigation = () => {
@@ -24,7 +24,7 @@ const Navigation = () => {
 
                     <Container>
 
-                        <Navbar.Brand as={Link} to={`/`}>
+                        <Navbar.Brand as={Link} to={`/home`}>
                             <img src={ICONIMG} alt="icon" />
                         </Navbar.Brand>
 
@@ -33,7 +33,7 @@ const Navigation = () => {
                         <Navbar.Toggle aria-controls="navbar-nav" />
 
                         <Navbar.Collapse id="navbar-nav" className="justify-content-end">
-                            <Nav.Link as={Link} to={`/`}>Home  <LiaCampgroundSolid /></Nav.Link>
+                            <Nav.Link as={Link} to={`/home`}>Home  <LiaCampgroundSolid /></Nav.Link>
                             <Nav.Link as={Link} to={`/eventos`}>Events  <LiaBinocularsSolid /></Nav.Link>
                             <Nav.Link as={Link} to={`/perfil`}>Profile  <LiaDrupal /></Nav.Link>
                         </Navbar.Collapse>

@@ -9,6 +9,7 @@ import CreateEventPage from "../pages/CreateEventsPage/CreateEventsPage"
 import EditAttendantsPage from "../pages/EditAttendantsPage/EditAttendantsPage"
 import EditEventFormPage from "../pages/EditEventFormPage/EditEventFormPage"
 import LoginPage from "../pages/LoginPage/LoginPage"
+import NopePage from "../pages/nopeMrfishPage/NopePage"
 
 const AppRoutes = () => {
     return (
@@ -22,7 +23,9 @@ const AppRoutes = () => {
             <Route path="/crear/evento" element={<CreateEventPage />} />
             <Route path="/editar/:eventId/evento" element={<EditEventFormPage />} />
             <Route path="/editar/asistente/:id" element={<EditAttendantsPage />} />
-            <Route path="/evento/:id/editar" element={<EditEventFormPage />} />
+            <Route path="/evento/:id/editar" element={<EditEventFormPage />} />ç
+            <Route path="/fish" element={<NopePage />} />
+
 
             <Route path="*" element={<NotFoundPage />} />
         </Routes>
