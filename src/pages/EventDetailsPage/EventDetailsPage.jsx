@@ -8,10 +8,14 @@ import './EventDetailsPage.css';
 import AttendantsList from "../../components/AttendantsList/AttendantsList";
 import CommentsList from "../../components/CommentsList/CommentsList";
 import { EMPTYHEART, FULLHEART } from "../../consts/image-paths";
+import { useContext } from "react"
+import { AuthContext } from "../../contexts/Auth.Context"
+
 
 const API_URL = "http://localhost:5005";
 
 const EventDetailsPage = () => {
+    const { loggedUSer } = useContext(AuthContext)
     const { eventId } = useParams();
     const [event, setEvent] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -125,7 +129,8 @@ const EventDetailsPage = () => {
                                 />
                             </div>
                         </motion.div>
-                        <Row>
+
+                        {!loggedUSer && <Row>
                             <Button variant="danger" className="btn btn-outline-light" onClick={toggleModal}>Eliminar evento</Button>
                             <Link
                                 to={`/evento/${event.id}/editar`}
@@ -134,7 +139,7 @@ const EventDetailsPage = () => {
                             >
                                 Editar evento
                             </Link>
-                        </Row>
+                        </Row>}
                     </Col>
                 </Row>
                 <hr />

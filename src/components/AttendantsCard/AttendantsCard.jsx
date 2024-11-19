@@ -1,22 +1,27 @@
-import { Container } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import { FaTrashAlt } from 'react-icons/fa';
-import { RxMagicWand } from "react-icons/rx";
-import { Link } from 'react-router-dom';
+import { Container } from 'react-bootstrap'
+import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card'
+import { FaTrashAlt } from 'react-icons/fa'
+import { RxMagicWand } from "react-icons/rx"
+import { Link } from 'react-router-dom'
 import "./AttendantsCard.css"
-import Modal from 'react-bootstrap/Modal';
-import { useState } from 'react';
+import Modal from 'react-bootstrap/Modal'
+import { useState } from 'react'
+import { useContext } from "react"
+import { AuthContext } from "../../contexts/Auth.Context"
 
 
-const AttendantsCard = ({ id, name, lastName, favouriteMusicGenre, genre, premium, avatar, onDelete }) => {
+
+const AttendantsCard = ({ id, name, lastName, avatar, onDelete }) => {
     const [showModal, setshowModal] = useState(false)
+    const { loggedUSer } = useContext(AuthContext)
+
     const handleDeleteEvent = () => {
-        onDelete();
-        setshowModal(false);
+        onDelete()
+        setshowModal(false)
     }
     const handleCancelButton = () => {
-        setshowModal(false);
+        setshowModal(false)
     }
     return (
         <div className="AttendantsCard">
@@ -24,7 +29,7 @@ const AttendantsCard = ({ id, name, lastName, favouriteMusicGenre, genre, premiu
                 <>
                     <Card>
                         <Card.Img variant="top" src={avatar} alt={`${name} ${lastName}`} />
-                        <Card.Body>
+                        {!loggedUSer && <Card.Body>
                             <Card.Title>{name} {lastName}</Card.Title>
                             <Button variant="btn btn-outline-light" onClick={() => setshowModal(true)} style={{ marginLeft: '10px' }}>
                                 <FaTrashAlt />
@@ -34,7 +39,7 @@ const AttendantsCard = ({ id, name, lastName, favouriteMusicGenre, genre, premiu
                                     <RxMagicWand />
                                 </Button>
                             </Link>
-                        </Card.Body>
+                        </Card.Body>}
                     </Card>
                 </>
                 <Modal show={showModal} onHide={() => setshowModal(false)} >
@@ -53,7 +58,7 @@ const AttendantsCard = ({ id, name, lastName, favouriteMusicGenre, genre, premiu
                 </Modal>
             </Container>
         </div>
-    );
-};
+    )
+}
 
-export default AttendantsCard;
+export default AttendantsCard

@@ -3,11 +3,16 @@ import { Link } from "react-router-dom";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import EventsGlobalFilter from "../EventsGlobalFilter/EventsGlobalFilter";
 import { ICONIMG } from "../../consts/image-paths";
-import { LiaDrupal, LiaCampgroundSolid, LiaBinocularsSolid } from "react-icons/lia";
+import { LiaDrupal, LiaCampgroundSolid, LiaBinocularsSolid, } from "react-icons/lia";
 import { motion } from "framer-motion";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/Auth.Context";
 
 
 const Navigation = () => {
+
+    const { loggedUSer } = useContext(AuthContext)
+
     return (
         <div className="Navigation">
             <motion.div

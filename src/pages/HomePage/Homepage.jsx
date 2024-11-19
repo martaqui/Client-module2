@@ -4,9 +4,12 @@ import { Carousel, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import * as IMAGE_PATH from '../../consts/image-paths';
 import { motion } from 'framer-motion';
+import { useContext } from 'react';
+
 
 
 const HomePage = () => {
+
     const fadeInUp = {
         hidden: { opacity: 0, y: 100 },
         visible: { opacity: 1, y: 0 },
@@ -85,6 +88,7 @@ const HomePage = () => {
                 viewport={{ once: false, amount: 0.2 }}
                 transition={{ duration: 1 }}
             >
+
                 <motion.h1 whileHover={{ scale: 1.05 }}>Las mejores fiestas de techno</motion.h1>
                 <div className="img-container">
                     <Link to="/eventos">
@@ -97,6 +101,7 @@ const HomePage = () => {
                     </Link>
                 </div>
             </motion.div>
+
 
 
             <motion.section
