@@ -99,7 +99,6 @@ const HomePage = () => {
             </motion.div>
 
 
-
             <motion.section
                 style={{ backgroundColor: 'black' }}
                 variants={fadeInUp}
@@ -109,7 +108,7 @@ const HomePage = () => {
                 transition={{ duration: 1 }}
             >
                 <h2 style={{ color: 'white', fontSize: 45 }}>Encuentra tus eventos favoritos</h2>
-                <article>
+                <article >
                     <Row className="mb-4 g-4">
                         {[
                             { img: IMAGE_PATH.CARDIMG1, title: "Fiesta techno en la Playa", desc: "¡Ven y disfruta de la mejor música electrónica junto al mar!" },
@@ -126,11 +125,13 @@ const HomePage = () => {
                                     viewport={{ once: false, amount: 0.2 }}
                                     transition={{ duration: 1 }}
                                 >
-                                    <img src={card.img} alt={card.title} className="img-custom rounded-top" />
-                                    <div className="card-body">
-                                        <h4>{card.title}</h4>
-                                        <p>{card.desc}</p>
-                                    </div>
+                                    <Link to={"/eventos"} >
+                                        <img src={card.img} alt={card.title} className="img-custom rounded-top" />
+                                        <div className="card-body">
+                                            <h4>{card.title}</h4>
+                                            <p>{card.desc}</p>
+                                        </div>
+                                    </Link>
                                 </motion.div>
                             </Col>
                         ))}

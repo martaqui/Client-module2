@@ -10,6 +10,10 @@ import { scale } from "@cloudinary/url-gen/actions/resize";
 const API_URL = "http://localhost:5005";
 
 const EventsList = () => {
+    const fadeInUp = {
+        hidden: { opacity: 0, y: 100 },
+        visible: { opacity: 1, y: 0 },
+    };
     const [isLoading, setIsLoading] = useState(true);
     const [events, setEvents] = useState([]);
 
@@ -38,10 +42,12 @@ const EventsList = () => {
                             <Col style={{ marginBottom: 20 }} md={{ span: 4 }} key={elm.id}>
                                 <Link to={`/eventos/detalles/${elm.id}`}>
                                     <motion.div
-                                        whileHover={{ scale: 1.1 }}
-                                        initial={{ opacity: 0, scale: 0 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        transition={{ duration: 0.5 }}
+                                        className="content"
+                                        variants={fadeInUp}
+                                        initial="hidden"
+                                        whileInView="visible"
+                                        viewport={{ once: false, amount: 0.2 }}
+                                        transition={{ duration: 1 }}
                                     >
                                         <EventCard {...elm} />
                                     </motion.div>

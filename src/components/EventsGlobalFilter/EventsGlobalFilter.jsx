@@ -1,11 +1,11 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { TiChevronRight, TiCompass } from "react-icons/ti";
 import ListGroup from 'react-bootstrap/ListGroup';
-import "./EventsGlobalFilter.css";
 import { motion } from 'framer-motion';
+import "./EventsGlobalFilter.css";
 
 const API_URL = "http://localhost:5005";
 
@@ -14,6 +14,7 @@ const EventsGlobalFilter = () => {
     const [filteredResult, setFilteredResult] = useState([]);
     const [isLoading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const location = useLocation();
 
     const list = {
         visible: { opacity: 1 },
@@ -53,15 +54,25 @@ const EventsGlobalFilter = () => {
         setFilteredResult([]);
     };
 
+    useEffect(() => {
+        if (eventFilter === '' && !location.pathname.includes('/eventos/detalles')) {
+            setFilteredResult([]);
+        }
+    }, [eventFilter, location.pathname]);
+
+    const isEventPage = location.pathname.includes('/eventos/detalles');
+
     return (
         <div className="EventsGlobalFilter">
-            <Form.Control
-                type="text"
-                placeholder="Search"
-                className="mr-sm-2"
-                value={eventFilter}
-                onChange={handleChange}
-            />
+            {!isEventPage && (
+                <Form.Control
+                    type="text"
+                    placeholder="Buscar evento"
+                    className="mr-sm-2"
+                    value={eventFilter}
+                    onChange={handleChange}
+                />
+            )}
 
             {isLoading && <p><TiCompass /></p>}
 
@@ -80,7 +91,6 @@ const EventsGlobalFilter = () => {
                                 <ListGroup.Item as={Link} onClick={resetSearchs} to={`/eventos/detalles/${event.id}`}>
                                     <TiChevronRight />
                                     <span>{event.title}</span>
-
                                 </ListGroup.Item>
                             </motion.div>
                         ))}

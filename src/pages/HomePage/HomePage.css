@@ -91,3 +91,35 @@ p {
     font-size: 1.2rem;
     padding: 0.5rem 1.5rem;
 }
+
+.HomePage a {
+    text-decoration: none;
+}
+
+.parallax-text {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100px;
+}
+
+.scroller {
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    padding-left: 100vw;
+}
+
+.scroller span {
+    font-size: 50px;
+    color: rgb(28, 4, 4);
+    margin-right: 10vw;
+    font-weight: bold;
+}
+
+
+.parallax-section {
+    background-color: rgba(0, 0, 0, 0.189);
+    margin: 0;
+    padding: 20px;
+}
