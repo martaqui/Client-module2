@@ -88,7 +88,7 @@ const EventDetailsPage = () => {
                                     transition={{ duration: 0.8 }}
                                 >
                                     <h3>Entrada normal</h3>
-                                    <h5>{event.price.regular}$</h5>
+                                    <h5>{event.price.regular} €</h5>
                                 </motion.div>
                             </Col>
                             <Col>
@@ -99,7 +99,7 @@ const EventDetailsPage = () => {
                                     transition={{ duration: 0.8 }}
                                 >
                                     <h3>Entrada anticipada</h3>
-                                    <h5>{event.price.early}$</h5>
+                                    <h5>{event.price.early} €</h5>
                                 </motion.div>
                             </Col>
                         </Row>

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Form, Button, Col, Row } from "react-bootstrap";
-
+import "./EditAttendantForm.css"
 
 const API_URL = "http://localhost:5005";
 
@@ -82,10 +82,11 @@ const EditAttendantsForm = () => {
         <div className="EditAttendantsForm">
             {
                 isLoading ? <h1>CARGHANDO</h1> :
-                    <Form onSubmit={handleAttendantSubmit} >
-                        <Row className="mb-2">
 
-                            <Form.Group as={Col} controlId="formGridName">
+                    <Form onSubmit={handleAttendantSubmit} >
+
+                        <Row className="mb-2">
+                            <Form.Group as={Col} controlId="formGridName" >
                                 <Form.Label>Name</Form.Label>
                                 <Form.Control type="text" value={attendantData.name} name="name" onChange={handleAttendantChange} />
                             </Form.Group>
@@ -94,9 +95,6 @@ const EditAttendantsForm = () => {
                                 <Form.Label>LastName</Form.Label>
                                 <Form.Control type="text" value={attendantData.lastName} name="lastName" onChange={handleAttendantChange} />
                             </Form.Group>
-
-
-
                         </Row>
 
                         <Row>
@@ -115,13 +113,13 @@ const EditAttendantsForm = () => {
                                 <Form.Control type="number" value={attendantData.phone} name="phone" onChange={handleAttendantChange} />
                             </Form.Group>
                         </Row>
+
                         <Row className="mb-3">
-                            <Form.Group as={Col} xs={6} controlId="formGridState">
+                            <Form.Group as={Col} xs={6} controlId="formGridState" style={{ marginTop: '10px' }} >
                                 <Form.Label>Género</Form.Label>
                                 <Form.Select
                                     placeholder="Género"
                                     value={attendantData.gender}
-
                                     name="gender"
                                     onChange={handleAttendantChange}
                                 >
@@ -131,8 +129,9 @@ const EditAttendantsForm = () => {
                                 </Form.Select>
                             </Form.Group>
                         </Row>
+
                         <Row>
-                            <Form.Group as={Col} xs={6} id="formGridCheckbox" className="d-flex align-items-center mt-3">
+                            <Form.Group as={Col} xs={6} id="formGridCheckbox" className="d-flex align-items-center mt-3" style={{ gap: '10px' }}>
                                 <Form.Check
                                     type="checkbox"
                                     label="hardcore"
@@ -163,9 +162,10 @@ const EditAttendantsForm = () => {
                                 />
                             </Form.Group>
                         </Row>
-                        <Col> <Button variant="dark" className="btn btn-outline-light AttendantsButton" type="submit">
-                            Actualizar perfil
-                        </Button>
+                        <Col style={{ marginTop: '20px' }}>
+                            <Button variant="dark" className="btn btn-outline-light AttendantsButton" type="submit">
+                                Actualizar perfil
+                            </Button>
                         </Col>
                     </Form>
             }
