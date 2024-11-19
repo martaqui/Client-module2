@@ -49,7 +49,7 @@ const EventsList = () => {
                                         viewport={{ once: false, amount: 0.2 }}
                                         transition={{ duration: 1 }}
                                     >
-                                        <EventCard {...elm} />
+                                        <EventCard  {...elm} />
                                     </motion.div>
                                 </Link>
                             </Col>

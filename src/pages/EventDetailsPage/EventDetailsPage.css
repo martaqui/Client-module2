@@ -5,10 +5,12 @@ img {
 .EventDetailsPage * {
     color: white;
     text-shadow: 1px 2px 3px #666;
+
 }
 
 .EventDetailsPage .ContainerDetails {
     padding: 20px;
+    border: 1px rgb(87, 18, 18) solid;
 }
 
 .EventDetailsPage .btn {
@@ -19,6 +21,7 @@ img {
 
 .image-container {
     position: relative;
+    border: 1px rgb(87, 18, 18) solid;
 }
 
 .image-container .Hearts {
