@@ -4,8 +4,8 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../contexts/auth.context';
-
+import { AuthContext } from '../../contexts/Auth.Context';
+import ProfilePage from '../../pages/ProfilePage/ProfilePage';
 const LogInForm = () => {
     const navigate = useNavigate();
     const { loggedUser, login, logout } = useContext(AuthContext);
@@ -25,8 +25,9 @@ const LogInForm = () => {
             logInAdmin();
             alert('logeado')
             navigate('/home');
-        } else {
-            alert('Credenciales incorrectas');
+            setL
+        } if (loggedUser) {
+
         }
     };
 

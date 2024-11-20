@@ -6,13 +6,17 @@ import { ICONIMG } from "../../consts/image-paths";
 import { LiaDrupal, LiaCampgroundSolid, LiaBinocularsSolid, } from "react-icons/lia";
 import { motion } from "framer-motion";
 import { useContext } from "react";
-import { AuthContext } from "../../contexts/auth.context";
+import { AuthContext } from "../../contexts/Auth.Context";
+
 
 
 const Navigation = () => {
 
-    const { loggedUser } = useContext(AuthContext)
+    const { loggedUser, logout } = useContext(AuthContext)
 
+    const handleLogout = () => {
+        logout()
+    }
     return (
         <div className="Navigation">
             <motion.div
@@ -35,7 +39,14 @@ const Navigation = () => {
                         <Navbar.Collapse id="navbar-nav" className="justify-content-end">
                             <Nav.Link as={Link} to={`/home`}>Home  <LiaCampgroundSolid /></Nav.Link>
                             <Nav.Link as={Link} to={`/eventos`}>Events  <LiaBinocularsSolid /></Nav.Link>
-                            <Nav.Link as={Link} to={`/perfil`}>Profile  <LiaDrupal /></Nav.Link>
+
+                            {loggedUser ? (
+
+                                <Nav.Link as={Link} to={`/`} onClick={handleLogout}>Cerrar Sesión  <LiaDrupal /></Nav.Link>
+                            ) : (
+                                <Nav.Link as={Link} to={`/perfil`}>Profile  <LiaDrupal /></Nav.Link>
+                            )
+                            }
                         </Navbar.Collapse>
 
 
