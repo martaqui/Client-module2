@@ -9,7 +9,7 @@ function AuthProviderWrapper(props) {
     const logout = () => SetloggedUser(undefined)
 
     return (
-        <AuthContext.Provider value={{ loggedUSer, login, logout }}>
+        <AuthContext.Provider value={{ loggedUser, login, logout }}>
             {props.children}
         </AuthContext.Provider>
     )

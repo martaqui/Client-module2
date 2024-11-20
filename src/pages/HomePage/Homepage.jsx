@@ -34,7 +34,7 @@ const HomePage = () => {
     const navigate = useNavigate();
 
 
-    if (loggedUser) {
+    if (!loggedUser) {
         return <Navigate to={'/fish'} />
     }
 
