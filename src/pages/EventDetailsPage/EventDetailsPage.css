@@ -40,3 +40,15 @@ img {
     width: 100px;
 
 }
+
+.event-details {
+
+    padding: 50px;
+    border: 1px rgb(87, 18, 18) solid;
+}
+
+.pie-chart-container {
+    width: 100%;
+    background-color: black;
+    border-radius: 50px;
+}

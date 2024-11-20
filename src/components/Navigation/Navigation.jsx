@@ -41,9 +41,13 @@ const Navigation = () => {
 
                             {loggedUser ? (
 
-                                <Nav.Link as={Link} to={`/`} onClick={handleLogout}>Cerrar Sesión  <LiaDrupal /></Nav.Link>
+                                <Nav.Link as={Link} to={`/`} onClick={handleLogout}>
+                                    Cerrar Sesión  <LiaDrupal />
+                                </Nav.Link>
                             ) : (
-                                <Nav.Link as={Link} to={`/perfil`}>Profile  <LiaDrupal /></Nav.Link>
+                                <Nav.Link as={Link} to={`/perfil`}>
+                                    Profile  <LiaDrupal />
+                                </Nav.Link>
                             )
                             }
                         </Navbar.Collapse>
