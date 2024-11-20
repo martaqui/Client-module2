@@ -11,7 +11,8 @@ const NopePage = () => {
                 <Link to={'/'}>
                     <FaFish className="fish-icon" />
                 </Link>
-
+                <p>Me parece que primero <strong>tienes que registrarte </strong>para poder utilizar nuestra paginaa web</p>
+                <p><strong>Presiona a mr.fish</strong> para volver al login ;)</p>
             </div>
         </div>
     );
