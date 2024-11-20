@@ -26,7 +26,7 @@ const ProfilePage = () => {
 
                         <div className="DescriptionDIV">
                             <Row>
-                                <Col xs>
+                                <Col>
                                     <h2>MARTA QUIROGA</h2>
                                     <h4>Administradora de PacoFiestas</h4>
                                 </Col>

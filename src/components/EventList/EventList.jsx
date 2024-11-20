@@ -60,18 +60,16 @@ const EventsList = () => {
                     {filteredEvents.map((elm) => {
                         return (
                             <Col style={{ marginBottom: 20 }} md={{ span: 4 }} key={elm.id}>
-                                <Link to={`/eventos/detalles/${elm.id}`}>
-                                    <motion.div
-                                        className="content"
-                                        variants={fadeInUp}
-                                        initial="hidden"
-                                        whileInView="visible"
-                                        viewport={{ once: false, amount: 0.2 }}
-                                        transition={{ duration: 1 }}
-                                    >
-                                        <EventCard {...elm} />
-                                    </motion.div>
-                                </Link>
+                                <motion.div
+                                    className="content"
+                                    variants={fadeInUp}
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: false, amount: 0.2 }}
+                                    transition={{ duration: 1 }}
+                                >
+                                    <EventCard {...elm} />
+                                </motion.div>
                             </Col>
                         );
                     })}
