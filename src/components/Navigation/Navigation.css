@@ -4,12 +4,15 @@
     color: white;
     padding: 20px;
     font-size: 25px;
+    filter: drop-shadow(0 0 5px rgb(87, 18, 18)) drop-shadow(0 0 10px rgb(87, 18, 18)) drop-shadow(0 0 20px rgb(87, 18, 18));
 }
 
 .Navigation {
     padding: 0;
     margin: 0;
 }
+
+
 
 .Navigation img {
     width: 150px;
@@ -19,6 +22,7 @@
 
 .Navigation .navbar {
     width: 100%;
+
 }
 
 @media (max-width: 992px) {
@@ -26,11 +30,13 @@
     .navbar .EventsGlobalFilter {
         width: 100%;
         display: flex;
+
         justify-content: center;
         margin-top: 10px;
     }
 
     .navbar .EventsGlobalFilter input {
         width: 80%;
+
     }
 }
