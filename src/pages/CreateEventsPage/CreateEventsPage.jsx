@@ -5,10 +5,11 @@ import { useContext } from "react"
 import { AuthContext } from "../../contexts/auth.context"
 import { Navigate } from "react-router-dom"
 
+
 const CreateEventPage = () => {
-    const { loggedAdmin } = useContext(AuthContext)
-    if (!loggedAdmin) {
-        return <Navigate to="/"></Navigate>
+    const { loggedUser } = useContext(AuthContext)
+    if (loggedUser) {
+        return <Navigate to={'/fish'} />
     }
     return (
         <div className="CreateEventPage">
