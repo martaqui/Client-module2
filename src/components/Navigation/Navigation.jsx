@@ -6,8 +6,7 @@ import { ICONIMG } from "../../consts/image-paths";
 import { LiaDrupal, LiaCampgroundSolid, LiaBinocularsSolid, } from "react-icons/lia";
 import { motion } from "framer-motion";
 import { useContext } from "react";
-import { AuthContext } from "../../contexts/Auth.Context";
-
+import { AuthContext } from "../../contexts/auth.context";
 
 
 const Navigation = () => {

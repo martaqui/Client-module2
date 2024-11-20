@@ -4,3 +4,21 @@
     justify-content: center;
     border: 1px rgb(87, 18, 18) solid;
 }
+
+.attendantcard h1 {
+    font-size: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+    justify-content: center;
+    filter: drop-shadow(0 0 5px rgb(87, 18, 18)) drop-shadow(0 0 10px rgb(87, 18, 18)) drop-shadow(0 0 20px rgb(87, 18, 18));
+}
+
+.attendantcard h4 {
+    display: flex;
+    font-size: 50px;
+    flex-wrap: wrap;
+    color: white;
+    align-items: center;
+    filter: drop-shadow(0 0 5px rgb(87, 18, 18)) drop-shadow(0 0 10px rgb(87, 18, 18)) drop-shadow(0 0 20px rgb(87, 18, 18));
+}
