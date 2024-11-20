@@ -8,7 +8,7 @@ const NewAttendantPage = () => {
     const { loggedUser } = useContext(AuthContext)
 
 
-    if (loggedUser) {
+    if (!loggedUser) {
         return <Navigate to={'/fish'} />
     }
 
@@ -17,14 +17,11 @@ const NewAttendantPage = () => {
 
             <Container >
 
-                <Row>
+                <Row style={{ color: 'white' }}>
                     <Col>
                         <h1>Confirma tu asistencia al evento aquí!</h1>
                     </Col>
 
-                    <Col>
-                        <h2>Disfruta compartiendo tus gustos!</h2>
-                    </Col>
                 </Row>
 
                 <br />

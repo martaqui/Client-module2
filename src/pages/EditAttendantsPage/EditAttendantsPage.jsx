@@ -5,7 +5,7 @@ import { AuthContext } from "../../contexts/auth.context"
 
 const EditAttendantsPage = () => {
     const { loggedUser } = useContext(AuthContext)
-    if (loggedUser) {
+    if (!loggedUser) {
         return <Navigate to={'/fish'} />
     }
     return (

@@ -62,7 +62,7 @@ const EventDetailsPage = () => {
             </div>
         );
     }
-    if (!loggedUser) {
+    if (loggedUser) {
         return <Navigate to={'/fish'} />
     }
 
@@ -134,7 +134,7 @@ const EventDetailsPage = () => {
                             </div>
                         </motion.div>
 
-                        {!loggedUser && <Row>
+                        loggedUser && <Row>
                             <Button variant="danger" className="btn btn-outline-light" onClick={toggleModal}>Eliminar evento</Button>
                             <Link
                                 to={`/evento/${event.id}/editar`}
@@ -143,7 +143,7 @@ const EventDetailsPage = () => {
                             >
                                 Editar evento
                             </Link>
-                        </Row>}
+                        </Row>
                     </Col>
                 </Row>
                 <hr />
