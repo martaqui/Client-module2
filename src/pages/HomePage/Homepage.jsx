@@ -6,8 +6,7 @@ import * as IMAGE_PATH from '../../consts/image-paths';
 import { motion } from 'framer-motion';
 
 import { useContext, useEffect } from 'react';
-import { AuthContext } from '../../contexts/Auth.Context';
-
+import { AuthContext } from '../../contexts/auth.context';
 
 
 const HomePage = () => {

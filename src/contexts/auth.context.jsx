@@ -4,9 +4,9 @@ const AuthContext = createContext()
 
 function AuthProviderWrapper(props) {
 
-    const [loggedUSer, SetLoggedUSer] = useState('logeao')
-    const login = user => SetLoggedUSer(user)
-    const logout = () => SetLoggedUSer(undefined)
+    const [loggedUser, SetloggedUser] = useState('logeao')
+    const login = user => SetloggedUser(user)
+    const logout = () => SetloggedUser(undefined)
 
     return (
         <AuthContext.Provider value={{ loggedUSer, login, logout }}>
