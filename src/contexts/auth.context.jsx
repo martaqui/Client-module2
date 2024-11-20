@@ -1,25 +1,19 @@
-import { createContext, useState } from "react";
+import { createContext, useState } from "react"
 
-const AuthContext = createContext();
+const AuthContext = createContext()
 
 function AuthProviderWrapper(props) {
-    const [loggedUser, SetloggedUser] = useState(null);
 
-    const login = (user) => {
-        SetloggedUser(user);
-        console.log("User logged in:", user);
-    };
-
-    const logout = () => {
-        SetloggedUser(null);
-        console.log("User logged out");
-    };
+    const [loggedUSer, SetLoggedUSer] = useState('logeao')
+    const login = user => SetLoggedUSer(user)
+    const logout = () => SetLoggedUSer(undefined)
 
     return (
-        <AuthContext.Provider value={{ loggedUser, login, logout }}>
+        <AuthContext.Provider value={{ loggedUSer, login, logout }}>
             {props.children}
         </AuthContext.Provider>
-    );
-}
+    )
 
-export { AuthContext, AuthProviderWrapper };
+
+}
+export { AuthContext, AuthProviderWrapper }
