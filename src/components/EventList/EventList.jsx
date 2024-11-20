@@ -18,6 +18,7 @@ const EventsList = () => {
     const [events, setEvents] = useState([]);
     const [filteredEvents, setFilteredEvents] = useState([]);
 
+
     useEffect(() => {
         fetchEvents();
     }, []);
