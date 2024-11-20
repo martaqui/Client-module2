@@ -8,7 +8,9 @@ const NopePage = () => {
         <div className="hero-container">
             <div className="hero-content">
                 <h1>No no no Mr. Fish</h1>
-                <FaFish className="fish-icon" />
+                <Link to={'/'}>
+                    <FaFish className="fish-icon" />
+                </Link>
 
             </div>
         </div>

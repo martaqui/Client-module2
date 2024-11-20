@@ -3,13 +3,9 @@ import EventsList from "../../components/EventList/EventList"
 import { Link } from "react-router-dom"
 import { none } from "@cloudinary/url-gen/qualifiers/progressive"
 import './EventsPage.css'
-import { useContext, } from "react"
-import { AuthContext } from "../../contexts/Auth.Context"
 
 
-AuthContext
 const EventsPage = () => {
-    const { loggedUser } = useContext(AuthContext)
 
 
     return (
@@ -21,7 +17,7 @@ const EventsPage = () => {
 
                 <Row>
                     <Col xs="9">
-                        <h1>Nuestos eventos</h1>
+                        <h1>eventos</h1>
                     </Col>
 
                     <Col>

@@ -5,8 +5,7 @@ import Toast from 'react-bootstrap/Toast';
 import { DiLinux } from "react-icons/di";
 
 import './AdminLogAlert.css';
-import { AuthContext } from '../../contexts/Auth.Context';
-
+import { AuthContext } from '../../contexts/auth.context';
 function AdminLogAlert() {
     const [show, setShow] = useState(false);
     const { loggedUser, login, logout } = useContext(AuthContext);

@@ -1,8 +1,8 @@
 import { Container, Row, Col } from "react-bootstrap"
-import AttendantsCard from "../../components/AttendantsCard/AttendantsCard"
 import EventsList from "../../components/EventList/EventList"
 import "./ProfilePage.css"
-import LogInForm from "../../components/LogInForm/LogInForm"
+import { LiaDrupal } from "react-icons/lia";
+
 
 const ProfilePage = () => {
     return (
@@ -11,7 +11,8 @@ const ProfilePage = () => {
                 <Row>
                     <Col xs="5">
                         <div className="attendantcard">
-
+                            <h1><LiaDrupal /></h1>
+                            <h4>Admins</h4>
                         </div>
                         <hr />
                         <div><EventsList /></div>

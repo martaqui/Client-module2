@@ -8,8 +8,7 @@ import "./AttendantsCard.css"
 import Modal from 'react-bootstrap/Modal'
 import { useState } from 'react'
 import { useContext } from "react"
-import { AuthContext } from "../../contexts/Auth.Context"
-
+import { AuthContext } from '../../contexts/auth.context'
 
 
 const AttendantsCard = ({ id, name, lastName, avatar, onDelete }) => {
@@ -46,7 +45,7 @@ const AttendantsCard = ({ id, name, lastName, avatar, onDelete }) => {
                     <Modal.Header closeButton>
                         <Modal.Title>¡Cuidado!</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>¿Esta seguro de que desea eliminar el atsitente??</Modal.Body>
+                    <Modal.Body>¿Esta seguro de que desea eliminar el asistente??</Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleDeleteEvent} >
                             Si

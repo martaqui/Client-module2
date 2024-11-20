@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate, Navigate } from "react-router-dom";
 import { Container, Row, Col, Button, Spinner } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import { motion } from "framer-motion";
@@ -12,7 +12,9 @@ import { useContext } from "react"
 import { AuthContext } from "../../contexts/auth.context";
 const API_URL = "http://localhost:5005";
 
+
 const EventDetailsPage = () => {
+
     const { loggedUser } = useContext(AuthContext)
     const { eventId } = useParams();
     const [event, setEvent] = useState(null);
@@ -60,6 +62,10 @@ const EventDetailsPage = () => {
             </div>
         );
     }
+    if (loggedUser) {
+        return <Navigate to={'/fish'} />
+    }
+
 
     return (
         <div className="EventDetailsPage">
