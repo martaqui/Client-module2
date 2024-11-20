@@ -11,7 +11,7 @@ const ProfilePage = () => {
                 <Row>
                     <Col xs="5">
                         <div className="attendantcard">
-                            <AttendantsCard />
+
                         </div>
                         <hr />
                         <div><EventsList /></div>
