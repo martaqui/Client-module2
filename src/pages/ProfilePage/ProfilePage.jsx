@@ -13,6 +13,7 @@ const ProfilePage = () => {
                         <div className="attendantcard">
                             <h1><LiaDrupal /></h1>
                             <h4>Admins</h4>
+
                         </div>
                         <hr />
                         <div><EventsList /></div>
@@ -24,6 +25,16 @@ const ProfilePage = () => {
                     }}>
 
                         <div className="DescriptionDIV">
+                            <h1>MARTA QUIROGA</h1>
+                            <h3>Administradora de PacoFiestas</h3>
+                            <hr />
+                            <h4>El desarrollo de esta página web ha sido un desafío enriquecedor. Desde el inicio, me enfrenté a la tarea de aprender y aplicar tecnologías nuevas como React, JavaScript y CSS. A medida que avanzaba, me encontré con varios obstáculos, que me pusieron a prueba y me llevaron a profundizar en la documentación y las mejores prácticas de desarrollo.
+
+                                Uno de los mayores retos fue la gestión del estado y la interactividad de la página. Sin embargo, cada dificultad resuelta nos permitió mejorar nuestras habilidades y entender mejor cómo funciona el desarrollo web. Hubo momentos de frustración, especialmente cuando no lograbamos hacer que ciertas funcionalidades funcionaran, pero cada error fue una oportunidad de aprendizaje.
+
+                                La satisfacción de ver la página funcionando al final ha sido increíble.
+
+                            </h4>
 
                         </div>
 

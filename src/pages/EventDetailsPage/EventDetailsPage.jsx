@@ -62,7 +62,7 @@ const EventDetailsPage = () => {
             </div>
         );
     }
-    if (loggedUser) {
+    if (!loggedUser) {
         return <Navigate to={'/fish'} />
     }
 

@@ -27,8 +27,8 @@ const LoginPage = () => {
                             transition={{ duration: 0.8 }}
                         >
                             <div className="LoginForm">
-                                <h1>Inicio de sesion</h1>
-                                <p>inicia sesion para poder ver los mejore eventos del momento</p>
+                                <h1>Inicio de sesión</h1>
+                                <p>Inicia sesion para poder ver los mejores eventos del momento</p>
                                 <br />
                                 <LogInForm />
                             </div>

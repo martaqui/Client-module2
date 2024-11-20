@@ -4,8 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../contexts/Auth.Context';
-
+import { AuthContext } from '../../contexts/auth.context';
 const LogInForm = () => {
     const navigate = useNavigate();
     const { loggedUser, login, logout } = useContext(AuthContext);
@@ -44,11 +43,11 @@ const LogInForm = () => {
         <div className="className">
             <Form onSubmit={handleSubmit}>
                 <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
-                    <Form.Label column sm={10}>Correo electronico</Form.Label>
+                    <Form.Label column sm={10}>Correo electrónico</Form.Label>
                     <Col sm={20}>
                         <Form.Control
                             type="email"
-                            placeholder="Correo electronico"
+                            placeholder="Correo electrónico"
                             value={logInData.email}
                             onChange={handleInputChange}
                             name="email"

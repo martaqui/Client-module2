@@ -22,3 +22,28 @@
     align-items: center;
     filter: drop-shadow(0 0 5px rgb(87, 18, 18)) drop-shadow(0 0 10px rgb(87, 18, 18)) drop-shadow(0 0 20px rgb(87, 18, 18));
 }
+
+.DescriptionDIV {
+    padding: 90px;
+}
+
+.DescriptionDIV h1 {
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+    justify-content: center;
+}
+
+.DescriptionDIV h3 {
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+    justify-content: center;
+}
+
+.DescriptionDIV h4 {
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+    justify-content: center;
+}
