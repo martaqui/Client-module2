@@ -23,10 +23,10 @@ const EventsPage = () => {
                     <Col xs="9">
                         <h1>Nuestos eventos</h1>
                     </Col>
-                    {
-                        !loggedUser && <Col>
-                            <Link style={{ textDecoration: none }} to={"/crear/evento"}><h1>Crea tu Evento</h1></Link>
-                        </Col>}
+
+                    <Col>
+                        <Link style={{ textDecoration: none }} to={"/crear/evento"}><h1>Crea tu Evento</h1></Link>
+                    </Col>
                 </Row>
 
                 <hr />
