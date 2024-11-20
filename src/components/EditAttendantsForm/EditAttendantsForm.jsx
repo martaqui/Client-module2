@@ -104,7 +104,7 @@ const EditAttendantsForm = () => {
                             </Form.Group>
 
                             <Form.Group as={Col} controlId="formGridName">
-                                <Form.Label>Fecha de nacimiento</Form.Label>
+                                <Form.Label>edad</Form.Label>
                                 <Form.Control type="text" value={attendantData.birth} name="birth" onChange={handleAttendantChange} />
                             </Form.Group>
 

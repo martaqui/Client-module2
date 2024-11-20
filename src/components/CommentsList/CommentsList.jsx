@@ -60,7 +60,7 @@ const CommentsList = () => {
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formMessage">
-                        <Form.Label>Comentario</Form.Label>
+                        <Form.Label>Comentarios</Form.Label>
                         <Form.Control
                             as="textarea"
                             rows={3}
