@@ -4,8 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../contexts/auth.context';
-
+import { AuthContext } from '../../contexts/Auth.Context';
 const LogInForm = () => {
     const navigate = useNavigate();
     const { loggedUser, login, logout } = useContext(AuthContext);

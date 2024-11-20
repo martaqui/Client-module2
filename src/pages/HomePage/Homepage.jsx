@@ -4,8 +4,9 @@ import { Carousel, Row, Col } from 'react-bootstrap';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import * as IMAGE_PATH from '../../consts/image-paths';
 import { motion } from 'framer-motion';
-import { AuthContext } from "../../contexts/auth.context"
+
 import { useContext, useEffect } from 'react';
+import { AuthContext } from '../../contexts/Auth.Context';
 
 
 
@@ -34,7 +35,7 @@ const HomePage = () => {
     const navigate = useNavigate();
 
 
-    if (!loggedUser) {
+    if (loggedUser) {
         // navigate('/fish');
         return <Navigate to={'/fish'} />
     }

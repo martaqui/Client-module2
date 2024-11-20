@@ -6,7 +6,8 @@ import { ICONIMG } from "../../consts/image-paths";
 import { LiaDrupal, LiaCampgroundSolid, LiaBinocularsSolid, } from "react-icons/lia";
 import { motion } from "framer-motion";
 import { useContext } from "react";
-import { AuthContext } from "../../contexts/auth.context";
+import { AuthContext } from "../../contexts/Auth.Context";
+
 
 
 const Navigation = () => {
@@ -36,6 +37,7 @@ const Navigation = () => {
                             <Nav.Link as={Link} to={`/home`}>Home  <LiaCampgroundSolid /></Nav.Link>
                             <Nav.Link as={Link} to={`/eventos`}>Events  <LiaBinocularsSolid /></Nav.Link>
                             <Nav.Link as={Link} to={`/perfil`}>Profile  <LiaDrupal /></Nav.Link>
+                            <Nav.Link as={Link} to={`/`}>Cerrar Sesión  <LiaDrupal /></Nav.Link>
                         </Navbar.Collapse>
 
 

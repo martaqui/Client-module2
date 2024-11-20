@@ -4,7 +4,8 @@ import { Link } from "react-router-dom"
 import { none } from "@cloudinary/url-gen/qualifiers/progressive"
 import './EventsPage.css'
 import { useContext, } from "react"
-import { AuthContext } from "../../contexts/auth.context"
+import { AuthContext } from "../../contexts/Auth.Context"
+
 
 AuthContext
 const EventsPage = () => {
