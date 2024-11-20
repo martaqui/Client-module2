@@ -25,8 +25,18 @@ const ProfilePage = () => {
                     }}>
 
                         <div className="DescriptionDIV">
-                            <h1>MARTA QUIROGA</h1>
-                            <h3>Administradora de PacoFiestas</h3>
+                            <Row>
+                                <Col xs>
+                                    <h2>MARTA QUIROGA</h2>
+                                    <h4>Administradora de PacoFiestas</h4>
+                                </Col>
+                                <Col>
+                                    <h2>JOHN SEBASTIAN</h2>
+                                    <h4>Administrador de PacoFiestas</h4>
+                                </Col>
+                            </Row>
+
+
                             <hr />
                             <h4>El desarrollo de esta página web ha sido un desafío enriquecedor. Desde el inicio, me enfrenté a la tarea de aprender y aplicar tecnologías nuevas como React, JavaScript y CSS. A medida que avanzaba, me encontré con varios obstáculos, que me pusieron a prueba y me llevaron a profundizar en la documentación y las mejores prácticas de desarrollo.
 
