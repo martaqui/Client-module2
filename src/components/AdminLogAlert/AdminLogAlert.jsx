@@ -9,10 +9,10 @@ import { AuthContext } from '../../contexts/Auth.Context';
 
 function AdminLogAlert() {
     const [show, setShow] = useState(false);
-    const { loggedUSer, login, logout } = useContext(AuthContext);
+    const { loggedUser, login, logout } = useContext(AuthContext);
 
     const handleToggleAdmin = () => {
-        if (loggedUSer) {
+        if (loggedUser) {
             logout();
         } else {
             login('logeao');
@@ -34,7 +34,7 @@ function AdminLogAlert() {
                     >
                         <Toast.Body variant="dark">
                             <small>
-                                {loggedUSer ? "Saliste del modo admin" : "Ahora eres admin B)"}
+                                {loggedUser ? "Saliste del modo admin" : "Ahora eres admin B)"}
                             </small>
                         </Toast.Body>
                     </Toast>

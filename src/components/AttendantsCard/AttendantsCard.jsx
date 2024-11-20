@@ -14,7 +14,7 @@ import { AuthContext } from "../../contexts/Auth.Context"
 
 const AttendantsCard = ({ id, name, lastName, avatar, onDelete }) => {
     const [showModal, setshowModal] = useState(false)
-    const { loggedUSer } = useContext(AuthContext)
+    const { loggedUser } = useContext(AuthContext)
 
     const handleDeleteEvent = () => {
         onDelete()
@@ -29,7 +29,7 @@ const AttendantsCard = ({ id, name, lastName, avatar, onDelete }) => {
                 <>
                     <Card>
                         <Card.Img variant="top" src={avatar} alt={`${name} ${lastName}`} />
-                        {!loggedUSer && <Card.Body>
+                        {!loggedUser && <Card.Body>
                             <Card.Title>{name} {lastName}</Card.Title>
                             <Button variant="btn btn-outline-light" onClick={() => setshowModal(true)} style={{ marginLeft: '10px' }}>
                                 <FaTrashAlt />

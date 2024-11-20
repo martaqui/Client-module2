@@ -8,7 +8,7 @@ import { AuthContext } from '../../contexts/auth.context';
 
 const LogInForm = () => {
     const navigate = useNavigate();
-    const { loggedUSer, login, logout } = useContext(AuthContext);
+    const { loggedUser, login, logout } = useContext(AuthContext);
     const [logInData, setLogInData] = useState({
         email: '',
         password: ''
@@ -24,6 +24,7 @@ const LogInForm = () => {
         if (logInData.email === "Admin@gmail.com" && logInData.password === "contraseña") {
             logInAdmin();
             alert('logeado')
+            navigate('/home');
         } else {
             alert('Credenciales incorrectas');
         }
@@ -38,11 +39,6 @@ const LogInForm = () => {
         login(admin);
     };
 
-    useEffect(() => {
-        if (loggedUSer) {
-            navigate('/home');
-        }
-    }, [loggedUSer, navigate]);
 
     return (
         <div className="className">

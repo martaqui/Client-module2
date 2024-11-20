@@ -3,11 +3,12 @@ import EventsList from "../../components/EventList/EventList"
 import { Link } from "react-router-dom"
 import { none } from "@cloudinary/url-gen/qualifiers/progressive"
 import './EventsPage.css'
-import { useContext } from "react"
-import { AuthContext } from "../../contexts/Auth.Context"
+import { useContext, } from "react"
+import { AuthContext } from "../../contexts/auth.context"
 
+AuthContext
 const EventsPage = () => {
-    const { loggedUSer } = useContext(AuthContext)
+    const { loggedUser } = useContext(AuthContext)
 
 
     return (
@@ -22,7 +23,7 @@ const EventsPage = () => {
                         <h1>Nuestos eventos</h1>
                     </Col>
                     {
-                        !loggedUSer && <Col>
+                        !loggedUser && <Col>
                             <Link style={{ textDecoration: none }} to={"/crear/evento"}><h1>Crea tu Evento</h1></Link>
                         </Col>}
                 </Row>

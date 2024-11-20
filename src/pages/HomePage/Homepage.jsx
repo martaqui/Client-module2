@@ -1,7 +1,7 @@
 import './HomePage.css';
 import img from './../../assets/img/FirstElm.png';
 import { Carousel, Row, Col } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import * as IMAGE_PATH from '../../consts/image-paths';
 import { motion } from 'framer-motion';
 import { AuthContext } from "../../contexts/auth.context"
@@ -32,11 +32,12 @@ const HomePage = () => {
 
 
     const navigate = useNavigate();
-    useEffect(() => {
-        if (loggedUser) {
-            navigate('/fish');
-        }
-    }, [loggedUser, navigate]);
+
+
+    if (!loggedUser) {
+        // navigate('/fish');
+        return <Navigate to={'/fish'} />
+    }
 
 
 

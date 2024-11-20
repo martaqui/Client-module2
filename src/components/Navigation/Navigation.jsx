@@ -11,7 +11,7 @@ import { AuthContext } from "../../contexts/auth.context";
 
 const Navigation = () => {
 
-    const { loggedUSer } = useContext(AuthContext)
+    const { loggedUser } = useContext(AuthContext)
 
     return (
         <div className="Navigation">
