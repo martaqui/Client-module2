@@ -28,17 +28,20 @@ const AttendantsCard = ({ id, name, lastName, avatar, onDelete }) => {
                 <>
                     <Card>
                         <Card.Img variant="top" src={avatar} alt={`${name} ${lastName}`} />
-                        {!loggedUser && <Card.Body>
+                        <Card.Body>
                             <Card.Title>{name} {lastName}</Card.Title>
-                            <Button variant="btn btn-outline-light" onClick={() => setshowModal(true)} style={{ marginLeft: '10px' }}>
-                                <FaTrashAlt />
-                            </Button>
-                            <Link to={`/editar/asistente/${id}`}>
-                                <Button variant="btn btn-outline-light" style={{ marginLeft: '10px' }}>
-                                    <RxMagicWand />
+                            {!loggedUser &&
+                                <Button variant="btn btn-outline-light" onClick={() => setshowModal(true)} style={{ marginLeft: '10px' }}>
+                                    <FaTrashAlt />
                                 </Button>
-                            </Link>
-                        </Card.Body>}
+                            }{!loggedUser &&
+                                <Link to={`/editar/asistente/${id}`}>
+                                    <Button variant="btn btn-outline-light" style={{ marginLeft: '10px' }}>
+                                        <RxMagicWand />
+                                    </Button>
+                                </Link>
+                            }
+                        </Card.Body>
                     </Card>
                 </>
                 <Modal show={showModal} onHide={() => setshowModal(false)} >
