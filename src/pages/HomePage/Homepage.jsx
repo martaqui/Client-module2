@@ -1,5 +1,4 @@
 import './HomePage.css';
-import img from './../../assets/img/FirstElm.png';
 import { Carousel, Row, Col } from 'react-bootstrap';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import * as IMAGE_PATH from '../../consts/image-paths';
@@ -86,7 +85,7 @@ const HomePage = () => {
                         />
                         <Carousel.Caption className="d-flex justify-content-center align-items-center h-100">
                             <div className="carousel-overlay">
-                                <motion.h3 whileHover={{ scale: 1.1 }}>Disfruta con los Mejores</motion.h3>
+                                <motion.h3 whileHover={{ scale: 1.1 }}>Disfruta de los mejores momentos</motion.h3>
                                 <Link to="/eventos" className="btn btn-outline-light">Únete</Link>
                             </div>
                         </Carousel.Caption>
@@ -103,11 +102,19 @@ const HomePage = () => {
                 transition={{ duration: 1 }}
             >
 
-                <motion.h1 whileHover={{ scale: 1.05 }}>Las mejores fiestas de techno</motion.h1>
-                <div className="img-container">
+                <motion.h1 whileHover={{ scale: 1.05 }}>LOS MEJORES EVENTOS DE TECHNO</motion.h1>
+                <div className="img-container" style={{ display: 'flex', gap: '10px' }}>
                     <Link to="/eventos">
                         <motion.img
-                            src={img}
+                            src={IMAGE_PATH.VINYL}
+                            alt="elements"
+                            style={{ width: '500px' }}
+                            whileHover={hoverEffect}
+                        />
+                    </Link>
+                    <Link to="/eventos">
+                        <motion.img
+                            src={IMAGE_PATH.VINYL}
                             alt="elements"
                             style={{ width: '500px' }}
                             whileHover={hoverEffect}
@@ -115,7 +122,6 @@ const HomePage = () => {
                     </Link>
                 </div>
             </motion.div>
-
 
 
             <motion.section

@@ -53,9 +53,11 @@ const EventDetailsPage = () => {
     };
 
     const toggleModal = () => setShowModal(!showModal);
+
     if (!loggedUser) {
         return <Navigate to='/fish' />
     }
+
     if (isLoading) {
         return (
             <div className="text-center">

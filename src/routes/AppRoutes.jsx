@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, Navigate } from "react-router-dom"
 import HomePage from "../pages/HomePage/Homepage"
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage"
 import EventsPage from "../pages/EventsPage/EventsPage"
@@ -10,14 +10,19 @@ import EditAttendantsPage from "../pages/EditAttendantsPage/EditAttendantsPage"
 import EditEventFormPage from "../pages/EditEventFormPage/EditEventFormPage"
 import LoginPage from "../pages/LoginPage/LoginPage"
 import NopePage from "../pages/nopeMrfishPage/NopePage"
+import { AuthContext } from "../contexts/auth.context"
+import { useContext } from "react"
+
 
 const AppRoutes = () => {
+    const { loggedUser } = useContext(AuthContext);
     return (
+
         <Routes>
-            <Route path="/" element={<LoginPage />} />
+            <Route path="/" element={loggedUser ? <Navigate to="/eventos" /> : <LoginPage />} />
             <Route path="/home" element={<HomePage />} />
             <Route path="/eventos" element={<EventsPage />} />
-            <Route path="/eventos/detalles/:eventId" element={<EventDetailsPage />} />
+            <Route path="/eventos/detalles/:eventId" element={loggedUser ? <EventDetailsPage /> : <NopePage />} />
             <Route path="/perfil" element={<ProfilePage />} />
             <Route path="/evento/:eventId/registro" element={<NewAttendantPage />} />
             <Route path="/crear/evento" element={<CreateEventPage />} />
@@ -29,6 +34,7 @@ const AppRoutes = () => {
 
             <Route path="*" element={<NotFoundPage />} />
         </Routes>
+
     )
 }
 export default AppRoutes
