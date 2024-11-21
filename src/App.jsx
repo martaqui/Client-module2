@@ -4,7 +4,6 @@ import AppRoutes from "./routes/AppRoutes"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import AdminLogAlert from "./components/AdminLogAlert/AdminLogAlert";
-import MyPie from "./components/MyPie/Mypie";
 
 function App() {
   return (
