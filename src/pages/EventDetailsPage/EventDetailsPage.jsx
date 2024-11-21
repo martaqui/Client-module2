@@ -115,11 +115,13 @@ const EventDetailsPage = () => {
                                 </motion.div>
                             </Col>
                         </Row>
+
                         <div className="event-details-page">
                             <h1 className="event-details">DETALLES DEL EVENTO</h1>
                             <div className="pie-chart-container">
                                 <MyPie capacity={event.capacity} assistants={event.assistants} />
                             </div>
+
                         </div>
                     </Col>
                     <Col>

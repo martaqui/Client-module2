@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 
 import { useContext, useEffect } from 'react';
 import { AuthContext } from '../../contexts/auth.context';
+import MyPie from '../../components/MyPie/Mypie';
 
 
 const HomePage = () => {
