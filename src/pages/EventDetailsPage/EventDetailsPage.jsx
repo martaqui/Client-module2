@@ -10,6 +10,7 @@ import CommentsList from "../../components/CommentsList/CommentsList";
 import { EMPTYHEART, FULLHEART } from "../../consts/image-paths";
 import { useContext } from "react"
 import { AuthContext } from "../../contexts/auth.context";
+import MyPie from "../../components/MyPie/Mypie";
 const API_URL = "http://localhost:5005";
 
 
@@ -22,7 +23,7 @@ const EventDetailsPage = () => {
     const [showModal, setShowModal] = useState(false);
     const [liked, setLiked] = useState(false);
     const navigate = useNavigate();
-
+    const [data, setData] = useState([])
     useEffect(() => fetchEventDetails(), []);
 
     const fetchEventDetails = () => {
@@ -52,7 +53,9 @@ const EventDetailsPage = () => {
     };
 
     const toggleModal = () => setShowModal(!showModal);
-
+    if (!loggedUser) {
+        return <Navigate to='/fish' />
+    }
     if (isLoading) {
         return (
             <div className="text-center">
@@ -62,12 +65,11 @@ const EventDetailsPage = () => {
             </div>
         );
     }
-    if (loggedUser) {
-        return <Navigate to={'/fish'} />
-    }
+
 
 
     return (
+
         <div className="EventDetailsPage">
             <Container>
                 <Row>
@@ -111,6 +113,12 @@ const EventDetailsPage = () => {
                                 </motion.div>
                             </Col>
                         </Row>
+                        <div className="event-details-page">
+                            <h1 className="event-details">DETALLES DEL EVENTO</h1>
+                            <div className="pie-chart-container">
+                                <MyPie capacity={event.capacity} assistants={event.assistants} />
+                            </div>
+                        </div>
                     </Col>
                     <Col>
                         <motion.div
@@ -133,8 +141,7 @@ const EventDetailsPage = () => {
                                 />
                             </div>
                         </motion.div>
-
-                        loggedUser && <Row>
+                        <Row>
                             <Button variant="danger" className="btn btn-outline-light" onClick={toggleModal}>Eliminar evento</Button>
                             <Link
                                 to={`/evento/${event.id}/editar`}
@@ -192,6 +199,7 @@ const EventDetailsPage = () => {
                 </Modal>
             </Container>
         </div>
+
     );
 };
 

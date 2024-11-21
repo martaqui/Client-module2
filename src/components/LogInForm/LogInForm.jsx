@@ -5,7 +5,9 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/auth.context';
+
 const LogInForm = () => {
+
     const navigate = useNavigate();
     const { loggedUser, login, logout } = useContext(AuthContext);
     const [logInData, setLogInData] = useState({
