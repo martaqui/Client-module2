@@ -9,56 +9,51 @@ const MyPie = ({ capacity = 100, assistants = 10 }) => (
                     id: "aforo",
                     label: "Aforo",
                     value: capacity,
-                    color: "#ff0000"  // Rojo
+
                 },
                 {
                     id: "assistants",
                     label: "Asistentes",
                     value: assistants,
-                    color: "#808080"  // Gris
                 }
             ]}
+            colors={['#85000076', '#99fff110']}
             margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
-            innerRadius={0.5}
+            innerRadius={0.6}
             padAngle={0.7}
             cornerRadius={3}
             activeOuterRadiusOffset={8}
-            borderWidth={1}
-            borderColor={{
-                from: 'color',
-                modifiers: [['darker', 0.2]],
-            }}
+            borderWidth={3}
+            borderColor={['#ffffff', '#ffffff']}
             arcLinkLabelsSkipAngle={10}
-            arcLinkLabelsTextColor="#333333"
-            arcLinkLabelsThickness={2}
+            arcLinkLabelsTextColor="#ffffff"
+            arcLinkLabelsThickness={0}
             arcLinkLabelsColor={{ from: 'color' }}
             arcLabelsSkipAngle={10}
-            arcLabelsTextColor={{
-                from: 'color',
-                modifiers: [['darker', 2]],
-            }}
+
             defs={[
                 {
 
                     type: 'patternDots',
                     background: 'inherit',
-                    color: 'rgba(255, 255, 255, 0.3)',
+                    color: '#ffffff',
                     size: 4,
-                    padding: 1,
+                    padding: 2,
                     stagger: true,
                 },
                 {
 
                     type: 'patternLines',
                     background: 'inherit',
-                    color: 'rgba(255, 255, 255, 0.3)',
-                    rotation: -45,
-                    lineWidth: 6,
+                    color: '#ffffff',
+
+                    lineWidth: 1,
                     spacing: 10,
                 },
             ]}
             fill={[
-                { match: { id: 'aforo' }, id: 'dots' },
+                { match: { id: 'aforo' }, id: 'dots', },
+
                 { match: { id: 'assistants' }, id: 'lines' }
             ]}
             legends={[
@@ -70,20 +65,12 @@ const MyPie = ({ capacity = 100, assistants = 10 }) => (
                     translateY: 56,
                     itemsSpacing: 0,
                     itemWidth: 100,
-                    itemHeight: 18,
-                    itemTextColor: '#999',
+                    itemHeight: 28,
+                    itemTextColor: '#ffffff',
                     itemDirection: 'left-to-right',
                     itemOpacity: 1,
-                    symbolSize: 18,
+                    symbolSize: 8,
                     symbolShape: 'circle',
-                    effects: [
-                        {
-                            on: 'hover',
-                            style: {
-                                itemTextColor: '#000',
-                            },
-                        },
-                    ],
                 },
             ]}
         />

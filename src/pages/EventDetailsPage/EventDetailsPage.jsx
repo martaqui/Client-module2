@@ -122,6 +122,7 @@ const EventDetailsPage = () => {
                                 <MyPie capacity={event.capacity} assistants={event.assistants} />
                             </div>
 
+
                         </div>
                     </Col>
                     <Col>
@@ -145,6 +146,8 @@ const EventDetailsPage = () => {
                                 />
                             </div>
                         </motion.div>
+
+
                         <Row>
                             <Button variant="danger" className="btn btn-outline-light" onClick={toggleModal}>Eliminar evento</Button>
                             <Link
@@ -154,7 +157,10 @@ const EventDetailsPage = () => {
                             >
                                 Editar evento
                             </Link>
+
                         </Row>
+
+
                     </Col>
                 </Row>
                 <hr />

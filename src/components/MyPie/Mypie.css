@@ -1,0 +1,20 @@
+/* Estilo para los arcos */
+.nivo-pie path {
+    filter: drop-shadow(0 0 5px rgba(87, 18, 18, 0.6)) drop-shadow(0 0 10px rgba(87, 18, 18, 0.5)) drop-shadow(0 0 20px rgba(87, 18, 18, 0.4));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.nivo-pie path:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px rgba(87, 18, 18, 0.8)) drop-shadow(0 0 15px rgba(87, 18, 18, 0.7)) drop-shadow(0 0 30px rgba(87, 18, 18, 0.5));
+}
+
+/* Cambiar el color de las leyendas */
+.nivo-legend text {
+    transition: color 0.3s ease;
+}
+
+.nivo-legend text:hover {
+    color: #ff6347;
+    /* Color cuando se pasa el mouse */
+}
